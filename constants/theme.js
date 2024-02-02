@@ -2,6 +2,7 @@ const COLORS = {
     primary: "#00CEC9",
     secondary: "#FFF",
     black: "#000",
+    gray: '#DFE6E9',
   };
   
   const FONT = {

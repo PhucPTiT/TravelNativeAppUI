@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { COLORS, FONT } from '../constants/theme';
 import icons from '../constants/icons';
-import { Link } from 'expo-router';
+import { Link, Stack } from 'expo-router';
 
 const image = require('../assets/images/startBg.png');
 
