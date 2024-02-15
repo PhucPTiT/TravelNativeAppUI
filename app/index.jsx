@@ -9,6 +9,11 @@ const image = require('../assets/images/startBg.png');
 export default function Page() {
   return (
     <View style={styles.container}>
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+      />
         <ImageBackground source={image} resizeMode="cover" style={styles.image}>
           <View style={styles.iconContainer}>
             <Image source={icons.building} style={styles.iconBuilding}/>

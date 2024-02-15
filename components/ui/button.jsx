@@ -32,7 +32,7 @@ const Button = ({ variant = "default", onPress, children, style }) => {
       style={[styles.button, variantStyles, style]}
       onPress={onPress}
     >
-      <Text style={styles.text}>{children}</Text>
+      <Text style={[styles.text, { color: variantStyles.color }]}>{children}</Text>
     </TouchableOpacity>
   );
 };

@@ -3,6 +3,7 @@ const COLORS = {
     secondary: "#FFF",
     black: "#000",
     gray: '#DFE6E9',
+    white: "#fff",
   };
   
   const FONT = {

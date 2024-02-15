@@ -18,7 +18,7 @@ const Auth = () => {
     }
 
     const handleSignup = () => {
-        router.push('/auth/signup')
+        router.push('/auth/sign-up')
     }
 
     useEffect(() => {
