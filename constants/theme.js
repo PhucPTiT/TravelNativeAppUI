@@ -4,6 +4,7 @@ const COLORS = {
     black: "#000",
     gray: '#DFE6E9',
     white: "#fff",
+    error: '#EA4335',
   };
   
   const FONT = {
@@ -20,6 +21,11 @@ const COLORS = {
     xxLarge: 32,
   };
   
+  const WEIGHT = {
+    small: '100',
+    normal: '400',
+    max: '900'
+  }
   const SHADOWS = {
     small: {
       shadowColor: "#000",
@@ -43,5 +49,5 @@ const COLORS = {
     },
   };
   
-  export { COLORS, FONT, SIZES, SHADOWS };
+  export { COLORS, FONT, SIZES, SHADOWS, WEIGHT };
   

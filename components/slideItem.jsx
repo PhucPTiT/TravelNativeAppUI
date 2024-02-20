@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
         marginTop: 40,
         fontFamily: FONT.montserrat,
         fontSize: 30,
-        fontWeight: 700,
+        fontWeight: '700',
     },
     des: { 
         marginTop: 18,
         fontFamily: FONT.montserrat,
         fontSize: 12,
-        fontWeight: 400,
+        fontWeight: '400',
         width: 200,
         textAlign: 'center'
     }

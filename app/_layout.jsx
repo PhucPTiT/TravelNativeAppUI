@@ -8,12 +8,12 @@ const RootLayout = () => {
     });
     
     if (!fontsLoaded) {
-    return null;
+        return null;
     }
     return ( <Stack>
                 <Stack.Screen name = "auth/index" options={{headerShown: false}}/>
                 <Stack.Screen name = "auth/login/index" options={{title: false}}/>
-                <Stack.Screen name = "auth/sign-up/index" options={{headerShown: false}}/>
+                <Stack.Screen name = "auth/sign-up/index" options={{title: false}}/>
             </Stack> );
 }
  

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Stack } from "expo-router";
 import icons from '../../../constants/icons';
 import { Image, StyleSheet, Text, TextInput, View } from "react-native";
@@ -7,6 +7,11 @@ import { TouchableOpacity } from "react-native";
 import { COLORS } from "../../../constants/theme";
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(true);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
     return ( 
         <View style={styles.loginPage}>
             <Stack.Screen
@@ -19,10 +24,13 @@ const Login = () => {
             <View style={styles.loginForm}>
                 <Text style={styles.titleForm}>Login</Text>  
                 <View style={styles.inputWrap}>
-                    <TextInput style={styles.inputStyle} placeholder="Username"/>
+                    <TextInput placeholderTextColor={'gray'} style={styles.inputStyle} placeholder="Username"/>
                 </View>
                 <View style={styles.inputWrap}>
-                    <TextInput style={styles.inputStyle} placeholder="Password"/>
+                    <TextInput secureTextEntry={showPassword} placeholderTextColor={'gray'} style={styles.inputStyle} placeholder="Password"/>
+                    <TouchableOpacity onPress={togglePasswordVisibility} style={styles.eye}>
+                            <Image source={showPassword ? icons.eye : icons.eyeActive} />
+                    </TouchableOpacity>
                 </View>
                 <TouchableOpacity onPress={() => {}} style={styles.forgotPassword}>
                     Forgot your password ?
@@ -39,7 +47,7 @@ const Login = () => {
             </View>
             <View style={styles.signupContainer}>
                 <Text>Don't have an account yet ?</Text>
-                <Link style = {styles.linK} href= "/auth/signup">Signup</Link>
+                <Link style = {styles.linK} href= "/auth/sign-up">Signup</Link>
             </View>
         </View>
     );
@@ -62,12 +70,12 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 30,
         fontFamily: 'Montserrat_Medium',
-        fontWeight: 700,
+        fontWeight: '700',
         marginBottom: 40,
     },
     inputWrap: {
         maxWidth: 400,
-        maxHeight: 40,
+        maxHeight: 50,
         width: "100%",
         height: '100%',
         borderRadius: 30,
@@ -83,7 +91,7 @@ const styles = StyleSheet.create({
     forgotPassword: {
         textAlign: 'right',
         fontSize: 12,
-        fontWeight: 300,
+        fontWeight: '300',
         fontFamily: 'Montserrat_Medium'
     },
     wrapBtn: {
@@ -121,6 +129,11 @@ const styles = StyleSheet.create({
     },
     linK: {
         color: COLORS.primary,
-        fontWeight: 600,
+        fontWeight: '600',
+    },
+    eye: {
+        position: 'absolute',
+        right: 12,
+        top: 14,
     }
 });

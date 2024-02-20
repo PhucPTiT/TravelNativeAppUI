@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { COLORS, FONT } from '../constants/theme';
+import { COLORS, FONT, WEIGHT } from '../constants/theme';
 import icons from '../constants/icons';
 import { Link, Stack } from 'expo-router';
 
@@ -27,7 +27,7 @@ export default function Page() {
           </View>
           <View style = {styles.routess}>
             <Link style= {styles.button} href="/auth">
-              <View style = {styles.textButton}>Let's Start</View>
+              Let's Start
             </Link>
             <Text style = {styles.des}>
               Click to continue
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 12,
     lineHeight: 14,
-    fontWeight: 'normal',
+    fontWeight: '500',
     textAlign: 'center',
     color: COLORS.black,
     fontFamily: FONT.montserrat
@@ -98,19 +98,11 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     borderRadius: 30,
     color: COLORS.secondary,
-    alignItems: 'center',
-    justifyContent: 'center',
     marginTop: '60%',
-  },
-  textButton: {
-    fontFamily: FONT.montserrat,
-    fontSize: 16,
-    fontWeight: 600,
     textAlign: 'center',
-    flex: 1,
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
-    textAlignVertical: 'center',
-  }
+    lineHeight: 50,
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: FONT.montserrat,
+  },
 });

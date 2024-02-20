@@ -2,8 +2,6 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { COLORS } from "../../constants/theme";
 
-const cn = (...classNames) => classNames.join(" ");
-
 const buttonVariants = {
   primary: {
     backgroundColor: COLORS.primary,
@@ -24,13 +22,15 @@ const buttonVariants = {
   },
 };
 
-const Button = ({ variant = "default", onPress, children, style }) => {
+const Button = ({ variant = "default", onPress, children, style, disabled }) => {
   const variantStyles = buttonVariants[variant] || buttonVariants.default;
+  const buttonOpacity = disabled ? 0.5 : 1; 
 
   return (
     <TouchableOpacity
-      style={[styles.button, variantStyles, style]}
+      style={[styles.button, variantStyles, style, { opacity: buttonOpacity }]} 
       onPress={onPress}
+      disabled={disabled || false}
     >
       <Text style={[styles.text, { color: variantStyles.color }]}>{children}</Text>
     </TouchableOpacity>
@@ -43,6 +43,7 @@ const styles = {
     paddingHorizontal: 20,
     borderRadius: 5,
     alignItems: "center",
+    justifyContent: "center",
   },
   text: {
     fontSize: 16,

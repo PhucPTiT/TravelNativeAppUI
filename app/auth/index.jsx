@@ -69,7 +69,7 @@ const Auth = () => {
                     Log in
                 </Button>
                 <Button onPress={handleSignup} style={styles.button} variant="secondary">
-                    Creat Account
+                    Create Account
                 </Button>
             </View>
         </View>
