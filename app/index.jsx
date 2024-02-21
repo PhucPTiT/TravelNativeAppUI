@@ -4,6 +4,8 @@ import { COLORS, FONT, WEIGHT } from '../constants/theme';
 import icons from '../constants/icons';
 import { Link, Stack } from 'expo-router';
 
+
+
 const image = require('../assets/images/startBg.png');
 
 export default function Page() {
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     color: COLORS.black,
-    fontFamily: FONT.montserrat
+    fontFamily: FONT.bold
   },
   wrapDes: {
     alignItems: 'center'
@@ -74,10 +76,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 12,
     lineHeight: 14,
-    fontWeight: '500',
     textAlign: 'center',
     color: COLORS.black,
-    fontFamily: FONT.montserrat
+    fontFamily: FONT.regular,
   },
   des: {
     color: 'white',
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     textAlign: 'center',
     color: COLORS.black,
-    fontFamily: FONT.montserrat
+    fontFamily: FONT.regular
   },
   routess: {
     alignItems: 'center',
@@ -102,7 +103,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 50,
     fontSize: 16,
-    fontWeight: 'bold',
-    fontFamily: FONT.montserrat,
+    fontFamily: FONT.bold,
   },
 });

@@ -4,7 +4,7 @@ import icons from '../../../constants/icons';
 import { Image, StyleSheet, Text, TextInput, View } from "react-native";
 import Button from "../../../components/ui/button";
 import { TouchableOpacity } from "react-native";
-import { COLORS } from "../../../constants/theme";
+import { COLORS, FONT, SHADOWS } from "../../../constants/theme";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(true);
@@ -13,10 +13,10 @@ const Login = () => {
         setShowPassword(!showPassword);
     };
     return ( 
-        <View style={styles.loginPage}>
+        <View style= {styles.loginPage}>
             <Stack.Screen
                 options={{
-                    headerStyle: { backgroundColor: 'transparent' },
+                    headerStyle: { backgroundColor: 'rgb(242,242,242)' },
                     headerTintColor: '#000',
                     headerShadowVisible: false
                 }}
@@ -24,7 +24,7 @@ const Login = () => {
             <View style={styles.loginForm}>
                 <Text style={styles.titleForm}>Login</Text>  
                 <View style={styles.inputWrap}>
-                    <TextInput placeholderTextColor={'gray'} style={styles.inputStyle} placeholder="Username"/>
+                    <TextInput textDecorationLine="none" placeholderTextColor={'gray'} style={styles.inputStyle} placeholder="Username"/>
                 </View>
                 <View style={styles.inputWrap}>
                     <TextInput secureTextEntry={showPassword} placeholderTextColor={'gray'} style={styles.inputStyle} placeholder="Password"/>
@@ -33,12 +33,12 @@ const Login = () => {
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity onPress={() => {}} style={styles.forgotPassword}>
-                    Forgot your password ?
+                    <Text style={{fontFamily: 'Montserrat_Regular',fontSize: 12, textAlign: "right"}}>Forgot your password ?</Text>
                 </TouchableOpacity>
                 <View style={styles.wrapBtn}>
                     <TouchableOpacity variant="secondary" onPress={() => {}} style={[styles.button, styles.buttonIm]}>
                         <Image source={icons.ggIcon} style={styles.iconBuilding}/>
-                        <Text style={{fontFamily: 'Montserrat_Medium',fontSize: 14, fontWeight: 600}}>Google</Text>
+                        <Text style={{fontFamily: 'Montserrat_SemiBold',fontSize: 14}}>Google</Text>
                     </TouchableOpacity>
                     <Button variant="primary" onPress={() => {}} style={styles.button}>
                         Login
@@ -69,8 +69,7 @@ const styles = StyleSheet.create({
     titleForm: {
         textAlign: 'center',
         fontSize: 30,
-        fontFamily: 'Montserrat_Medium',
-        fontWeight: '700',
+        fontFamily: 'Montserrat_Bold',
         marginBottom: 40,
     },
     inputWrap: {
@@ -79,20 +78,19 @@ const styles = StyleSheet.create({
         width: "100%",
         height: '100%',
         borderRadius: 30,
-        boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
         marginBottom: 10,
     },
     inputStyle: {
         flex: 1,
         borderRadius: 30,
         textAlign: 'center',
-        backgroundColor: COLORS.white
+        backgroundColor: COLORS.white,
+        ...SHADOWS.all
     },
     forgotPassword: {
         textAlign: 'right',
         fontSize: 12,
-        fontWeight: '300',
-        fontFamily: 'Montserrat_Medium'
+        fontFamily: 'Montserrat_Light'
     },
     wrapBtn: {
         flexDirection: 'row',
@@ -108,6 +106,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 30,
         flexDirection: 'row',
+        ...SHADOWS.all
     },
     signupContainer: {
         flexDirection: 'row',
@@ -123,13 +122,12 @@ const styles = StyleSheet.create({
     buttonIm: {
         backgroundColor: COLORS.secondary,
         color: COLORS.black,
-        boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
         paddingVertical: 10,
         paddingHorizontal: 20,
     },
     linK: {
         color: COLORS.primary,
-        fontWeight: '600',
+        fontFamily: FONT.semibold,
     },
     eye: {
         position: 'absolute',

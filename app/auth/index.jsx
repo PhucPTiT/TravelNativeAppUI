@@ -1,13 +1,14 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Dimensions, FlatList, StyleSheet, View } from "react-native";
+import { Dimensions, FlatList, Image, StyleSheet, View } from "react-native";
 import SlideItem from "../../components/slideItem";
 import Pagination from "../../components/pagination";
 import Button from "../../components/ui/button";
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
+
 
 const Auth = () => {
     const { width, height } = Dimensions.get('screen');
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(1);
 
     const flatListRef = useRef(null);
 
@@ -25,29 +26,31 @@ const Auth = () => {
         const interval = setInterval(() => {
             let nextIndex = activeIndex + 1;
             if (nextIndex >= slides.length) {
-                nextIndex = 0; 
+                nextIndex = 0;
             }
             flatListRef.current.scrollToIndex({ index: nextIndex });
+            // setActiveIndex(nextIndex);
         }, 2000);
 
         return () => clearInterval(interval);
     }, [activeIndex]);
 
+
     const handleScroll = (event) => {
-        const contentOffsetX = event.nativeEvent.contentOffset.x;
-        const index = Math.floor(contentOffsetX / width);
+        let contentOffset = event.nativeEvent.contentOffset.x;
+        if(contentOffset < 0) {
+                contentOffset = 0;
+            }
+        const index = Math.round(contentOffset / width);
         setActiveIndex(index);
     };
-
     return ( 
-        <View style = {{flexDirection: "column", height: height, alignItems: "space-between"}}>
-            <View>
+        <View style={{ flexDirection: "column", height: height, width }}>
+            <View style={{ height: height * 0.6}}>
                 <FlatList
                     ref={flatListRef}
                     data={slides}
-                    renderItem={({ item }) =>
-                        <SlideItem item={item}/>
-                    }
+                    renderItem={({ item }) => <SlideItem item={item} />}
                     keyExtractor={(item, index) => index.toString()}
                     horizontal
                     pagingEnabled
@@ -61,10 +64,9 @@ const Auth = () => {
                         index,
                     })}
                 />
-    
                 <Pagination data={slides} activeIndex={activeIndex}/>
             </View>
-            <View style = {styles.wrapBtn}>
+            <View style={styles.wrapBtn}>
                 <Button onPress={handleLogin} style={styles.button} variant="primary">
                     Log in
                 </Button>
@@ -80,17 +82,17 @@ export default Auth;
 
 const slides = [
     {
-        url:'../assets/images/hotelAu.png',
+        url: require('../../assets/images/hotelAu.png'),
         title: 'Booking hotel',
         des: 'Find the perfect accommodation for your trip'
     },
     {
-        url: "../assets/images/placeAu.png",
+        url: require("../../assets/images/placeAu.png"),
         title: 'Searching Place',
         des: 'Discover amazing destinations around the world'
     },
     {
-        url: "../assets/images/planAu.png",
+        url: require("../../assets/images/planAu.png"),
         title: 'Plan your trip',
         des: 'Custom and fast planning with a low price' 
     }

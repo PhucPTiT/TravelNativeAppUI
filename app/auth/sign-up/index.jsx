@@ -3,7 +3,7 @@ import { Link, Stack } from "expo-router";
 import { Alert, Image, Linking, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Button from "../../../components/ui/button";
 import icons from "../../../constants/icons";
-import { COLORS } from "../../../constants/theme";
+import { COLORS, SHADOWS } from "../../../constants/theme";
 import * as Yup from "yup"
 import { Formik } from "formik";
 
@@ -53,7 +53,7 @@ const Signup = () => {
                 <View style = {styles.signupPage}>
                     <Stack.Screen
                         options={{
-                            headerStyle: { backgroundColor: 'transparent' },
+                            headerStyle: { backgroundColor: 'rgb(242,242,242)' },
                             headerTintColor: '#000',
                             headerShadowVisible: false
                         }}
@@ -159,8 +159,7 @@ const styles = StyleSheet.create({
     titleForm: {
         textAlign: 'left',
         fontSize: 30,
-        fontFamily: 'Montserrat_Medium',
-        fontWeight: '700',
+        fontFamily: 'Montserrat_Bold',
         marginBottom: 40,
     },
     button: {
@@ -169,7 +168,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 30,
         flexDirection: 'row',
-        
+        ...SHADOWS.all
     },
     buttonIm: {
         backgroundColor: COLORS.secondary,
@@ -182,10 +181,9 @@ const styles = StyleSheet.create({
     },
     textOptions: {
         fontSize: 12,
-        fontFamily: 'Montserrat_Medium',
+        fontFamily: 'Montserrat_Mediu',
         color: COLORS.black,
         textAlign: 'center',
-        fontWeight: '500',
         marginBottom: 36,
     },
     inputWrap: {
@@ -203,18 +201,19 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         backgroundColor: COLORS.white,
         paddingLeft: 44,
+        ...SHADOWS.all
     },
     forgotPassword: {
         textAlign: 'right',
         fontSize: 12,
-        fontWeight: '300',
-        fontFamily: 'Montserrat_Medium'
+        fontFamily: 'Montserrat_Thin'
     },
     buttonSignup: {
         borderRadius: 30,
         maxHeight: 50,
         height: '100%',
         marginTop: 32,
+        ...SHADOWS.all
     },
     loginContainer: {
         flexDirection: 'row',
@@ -235,9 +234,8 @@ const styles = StyleSheet.create({
         marginTop: -10,
         marginBottom: 10,
         paddingLeft: 12,
-        fontFamily: 'Montserrat_Italic',
+        fontFamily: 'Montserrat_MediuItalic',
         fontSize: 12,
-        fontWeight: '500',
         color: COLORS.error,
     }
 });

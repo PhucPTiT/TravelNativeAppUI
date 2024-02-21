@@ -1,24 +1,21 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Platform, StyleSheet } from "react-native";
 import { COLORS } from "../../constants/theme";
 
 const buttonVariants = {
   primary: {
     backgroundColor: COLORS.primary,
     color: "white",
-    boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
   },
   secondary: {
     backgroundColor: COLORS.secondary,
     color: "black",
-    boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
   },
   outline: {
     borderColor: COLORS.primary,
     borderWidth: 1,
     backgroundColor: "white",
     color: "black",
-    boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
   },
 };
 
@@ -26,9 +23,17 @@ const Button = ({ variant = "default", onPress, children, style, disabled }) => 
   const variantStyles = buttonVariants[variant] || buttonVariants.default;
   const buttonOpacity = disabled ? 0.5 : 1; 
 
+  const buttonStyles = [
+    styles.button,
+    { backgroundColor: variantStyles.backgroundColor },
+    Platform.OS === "ios" ? styles.shadowIOS : styles.shadowAndroid, // Chọn hiệu ứng bóng đổ dựa trên nền tảng
+    style,
+    { opacity: buttonOpacity }
+  ];
+
   return (
     <TouchableOpacity
-      style={[styles.button, variantStyles, style, { opacity: buttonOpacity }]} 
+      style={buttonStyles} 
       onPress={onPress}
       disabled={disabled || false}
     >
@@ -37,7 +42,7 @@ const Button = ({ variant = "default", onPress, children, style, disabled }) => 
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   button: {
     paddingVertical: 10,
     paddingHorizontal: 20,
@@ -49,6 +54,15 @@ const styles = {
     fontSize: 16,
     fontWeight: "bold",
   },
-};
+  shadowIOS: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+  },
+  shadowAndroid: {
+    elevation: 4,
+  },
+});
 
 export default Button;

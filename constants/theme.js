@@ -5,11 +5,29 @@ const COLORS = {
     gray: '#DFE6E9',
     white: "#fff",
     error: '#EA4335',
+    default: 'rgb(242,242,242)',
   };
   
   const FONT = {
-    montserratI: "Montserrat_Italic",
-    montserrat: "Montserrat_Medium"
+    thin: "Montserrat_Thin", //100
+    extralight: "Montserrat_ExtraLight", //200
+    light: "Montserrat_Light", // 300
+    regular: "Montserrat_Regular", // 400
+    medium: "Montserrat_Mediu", // 500
+    semibold: "Montserrat_SemiBold", // 600
+    bold: "Montserrat_Bold", // 700
+    extrabold: "Montserrat_ExtraBold", // 800
+    black: "Montserrat_Black", // 900
+
+    thinI: "Montserrat_ThinItalic", //100
+    extralightI: "Montserrat_ExtraLightItalic", //200
+    lightI: "Montserrat_LightItalic", // 300
+    regularI: "Montserrat_RegularItalic", // 400
+    mediumI: "Montserrat_MediuItalic", // 500
+    semiboldI: "Montserrat_SemiBoldItalic", // 600
+    boldI: "Montserrat_BoldItalic", // 700
+    extraboldI: "Montserrat_ExtraBoldItalic", // 800
+    blackI: "Montserrat_BlackItalic", // 900
   };
   
   const SIZES = {
@@ -21,33 +39,24 @@ const COLORS = {
     xxLarge: 32,
   };
   
-  const WEIGHT = {
-    small: '100',
-    normal: '400',
-    max: '900'
-  }
   const SHADOWS = {
-    small: {
-      shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 2,
+    android: {
+      elevation: 4,
     },
-    medium: {
+    ios: {
       shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
+      shadowOffset: { width: 0, height: 4 },
       shadowOpacity: 0.25,
-      shadowRadius: 5.84,
-      elevation: 5,
+      shadowRadius: 4,
     },
+    all: {
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 4,
+    }
   };
   
-  export { COLORS, FONT, SIZES, SHADOWS, WEIGHT };
+  export { COLORS, FONT, SIZES, SHADOWS };
   

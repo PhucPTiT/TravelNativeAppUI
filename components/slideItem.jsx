@@ -4,7 +4,6 @@ import { FONT } from "../constants/theme";
 const {width, height} = Dimensions.get('screen')
 
 const SlideItem = ({item}) => {
-    console.log(item)
     return ( 
         <View style= {styles.container}>
             <Image style={styles.image} source={item.url} resizeMode="cover"/>
@@ -33,15 +32,13 @@ const styles = StyleSheet.create({
     },
     title: {
         marginTop: 40,
-        fontFamily: FONT.montserrat,
+        fontFamily: FONT.bold,
         fontSize: 30,
-        fontWeight: '700',
     },
     des: { 
         marginTop: 18,
-        fontFamily: FONT.montserrat,
+        fontFamily: FONT.regular,
         fontSize: 12,
-        fontWeight: '400',
         width: 200,
         textAlign: 'center'
     }
