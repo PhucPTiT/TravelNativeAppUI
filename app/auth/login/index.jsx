@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Stack } from "expo-router";
+import { Link, Stack, router } from "expo-router";
 import icons from '../../../constants/icons';
 import { Image, StyleSheet, Text, TextInput, View } from "react-native";
 import Button from "../../../components/ui/button";
@@ -12,8 +12,13 @@ const Login = () => {
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-    return ( 
-        <View style= {styles.loginPage}>
+
+    const handellogin = () => {
+        router.push("/page/home")
+    }
+
+    return (
+        <View style={styles.loginPage}>
             <Stack.Screen
                 options={{
                     headerStyle: { backgroundColor: 'rgb(242,242,242)' },
@@ -22,37 +27,37 @@ const Login = () => {
                 }}
             />
             <View style={styles.loginForm}>
-                <Text style={styles.titleForm}>Login</Text>  
+                <Text style={styles.titleForm}>Login</Text>
                 <View style={styles.inputWrap}>
-                    <TextInput textDecorationLine="none" placeholderTextColor={'gray'} style={styles.inputStyle} placeholder="Username"/>
+                    <TextInput textDecorationLine="none" placeholderTextColor={'gray'} style={styles.inputStyle} placeholder="Username" />
                 </View>
                 <View style={styles.inputWrap}>
-                    <TextInput secureTextEntry={showPassword} placeholderTextColor={'gray'} style={styles.inputStyle} placeholder="Password"/>
+                    <TextInput secureTextEntry={showPassword} placeholderTextColor={'gray'} style={styles.inputStyle} placeholder="Password" />
                     <TouchableOpacity onPress={togglePasswordVisibility} style={styles.eye}>
-                            <Image source={showPassword ? icons.eye : icons.eyeActive} />
+                        <Image source={showPassword ? icons.eye : icons.eyeActive} />
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity onPress={() => {}} style={styles.forgotPassword}>
-                    <Text style={{fontFamily: 'Montserrat_Regular',fontSize: 12, textAlign: "right"}}>Forgot your password ?</Text>
+                <TouchableOpacity onPress={() => { }} style={styles.forgotPassword}>
+                    <Text style={{ fontFamily: 'Montserrat_Regular', fontSize: 12, textAlign: "right" }}>Forgot your password ?</Text>
                 </TouchableOpacity>
                 <View style={styles.wrapBtn}>
-                    <TouchableOpacity variant="secondary" onPress={() => {}} style={[styles.button, styles.buttonIm]}>
-                        <Image source={icons.ggIcon} style={styles.iconBuilding}/>
-                        <Text style={{fontFamily: 'Montserrat_SemiBold',fontSize: 14}}>Google</Text>
+                    <TouchableOpacity variant="secondary" onPress={() => { }} style={[styles.button, styles.buttonIm]}>
+                        <Image source={icons.ggIcon} style={styles.iconBuilding} />
+                        <Text style={{ fontFamily: 'Montserrat_SemiBold', fontSize: 14 }}>Google</Text>
                     </TouchableOpacity>
-                    <Button variant="primary" onPress={() => {}} style={styles.button}>
+                    <Button variant="primary" onPress={handellogin} style={styles.button}>
                         Login
                     </Button>
                 </View>
             </View>
             <View style={styles.signupContainer}>
                 <Text>Don't have an account yet ?</Text>
-                <Link style = {styles.linK} href= "/auth/sign-up">Signup</Link>
+                <Link style={styles.linK} href="/auth/sign-up">Signup</Link>
             </View>
         </View>
     );
 }
- 
+
 export default Login;
 
 const styles = StyleSheet.create({
