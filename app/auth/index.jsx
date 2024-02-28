@@ -38,15 +38,15 @@ const Auth = () => {
 
     const handleScroll = (event) => {
         let contentOffset = event.nativeEvent.contentOffset.x;
-        if(contentOffset < 0) {
-                contentOffset = 0;
-            }
+        if (contentOffset < 0) {
+            contentOffset = 0;
+        }
         const index = Math.round(contentOffset / width);
         setActiveIndex(index);
     };
-    return ( 
+    return (
         <View style={{ flexDirection: "column", height: height, width }}>
-            <View style={{ height: height * 0.6}}>
+            <View style={{ height: height * 0.6 }}>
                 <FlatList
                     ref={flatListRef}
                     data={slides}
@@ -64,7 +64,7 @@ const Auth = () => {
                         index,
                     })}
                 />
-                <Pagination data={slides} activeIndex={activeIndex}/>
+                <Pagination data={slides} activeIndex={activeIndex} />
             </View>
             <View style={styles.wrapBtn}>
                 <Button onPress={handleLogin} style={styles.button} variant="primary">
@@ -94,7 +94,7 @@ const slides = [
     {
         url: require("../../assets/images/planAu.png"),
         title: 'Plan your trip',
-        des: 'Custom and fast planning with a low price' 
+        des: 'Custom and fast planning with a low price'
     }
 ];
 
