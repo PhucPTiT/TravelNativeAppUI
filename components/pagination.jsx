@@ -1,9 +1,11 @@
+import React from "react";
 import { StyleSheet, View } from "react-native";
 import { COLORS } from "../constants/theme";
+import PropTypes from "prop-types";
 
-const Pagination = ({ data, activeIndex }) => {
+const Pagination = ({ data, activeIndex, style }) => {
     return ( 
-        <View style={styles.pagination}>
+        <View style={[styles.pagination, style]}>
             {data.map((item, index) => {
                 return (
                     <View
@@ -18,6 +20,12 @@ const Pagination = ({ data, activeIndex }) => {
         </View>
     );
 }
+
+Pagination.propTypes = {
+    data: PropTypes.array.isRequired,
+    activeIndex: PropTypes.number.isRequired,
+    style: PropTypes.object,
+};
 
 export default Pagination;
 

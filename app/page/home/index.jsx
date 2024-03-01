@@ -7,6 +7,7 @@ import Intro1 from '../../../components/home/intro1';
 import Intro2 from '../../../components/home/intro2';
 import Intro4 from '../../../components/home/intro4';
 import Pagination from '../../../components/pagination';
+import Action from "../../../components/home/action";
 
 const { width, height } = Dimensions.get('screen');
 
@@ -65,8 +66,10 @@ const Home = () => {
                                         index,
                                     })}
                                 />
-                                <Pagination data={slides1} activeIndex={activeIndex} />
+                                <Pagination data={slides1} activeIndex={activeIndex} style={styles.pagination} />
                             </View>
+                            
+                            <Action/>
 
                             <Text style={styles.text3}>Recommended List</Text>
 
@@ -261,6 +264,12 @@ const styles = StyleSheet.create({
         height: 0.6 * height,
         justifyContent: 'center',
     },
+
+    pagination: {
+        position: 'absolute',
+        bottom:10,
+        right:10,
+    }
 });
 
 
