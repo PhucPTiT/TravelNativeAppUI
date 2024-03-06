@@ -14,7 +14,7 @@ const Login = () => {
     };
 
     const handellogin = () => {
-        router.push("/page/home")
+        router.push("/home")
     }
 
     return (

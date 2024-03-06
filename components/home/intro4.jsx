@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
-import { COLORS, FONT } from '../../constants/theme'
+import { COLORS, FONT, SHADOWS } from '../../constants/theme'
 import icons from '../../constants/icons';
 
 const Intro4 = ({ item }) => {
@@ -30,7 +30,7 @@ export default Intro4
 
 const styles = StyleSheet.create({
     image2: {
-        width: 380,
+        width: 135,
         height: 135,
         borderRadius: 20,
         marginBottom: 15
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
         marginLeft: 22,
         position: 'relative',
         justifyContent: 'flex-end',
+        borderRadius: 20,
 
 
     },

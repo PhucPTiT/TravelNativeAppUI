@@ -2,7 +2,6 @@ import React from 'react'
 import { Image, StyleSheet, Text, TextInput, View } from "react-native";
 import { COLORS, FONT, SHADOWS } from "../../constants/theme";
 import icons from '../../constants/icons';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const Search = () => {
     return (

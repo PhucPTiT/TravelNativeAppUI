@@ -99,7 +99,6 @@ const Signup = () => {
                                     placeholderTextColor={'gray'} 
                                     style={styles.inputStyle} 
                                     placeholder="Mail"
-                                    autoCapitalize="false"
                                     value={values.mail} 
                                     onChangeText={handleChange('mail')}
                                     onBlur={() => setFieldTouched('mail')}
@@ -114,7 +113,6 @@ const Signup = () => {
                                     placeholderTextColor={'gray'} 
                                     style={styles.inputStyle} 
                                     placeholder="Password"
-                                    autoCapitalize="false"
                                     value={values.password} 
                                     onChangeText={handleChange('password')}
                                     onBlur={() => setFieldTouched('password')}

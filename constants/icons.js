@@ -8,6 +8,19 @@ import star from "../assets/icons/star.png";
 import home_departure from "../assets/icons/home_departure.png";
 import home_hotel from "../assets/icons/home_hotel.png";
 import home_ai from "../assets/icons/home_ai.png";
+import home from "../assets/icons/home.png";
+import homeActive from "../assets/icons/home-active.png";
+import bell from "../assets/icons/bell.png";
+import bellActive from "../assets/icons/bell-active.png";
+import user from "../assets/icons/user.png";
+import userActive from "../assets/icons/user-active.png";
+import lock from "../assets/icons/lock.png";
+import call from "../assets/icons/call.png";
+import ticket from "../assets/icons/ticket.png";
+import ai from "../assets/icons/ai.png";
+import help from "../assets/icons/help.png";
+import schedule from "../assets/icons/schedule.png";
+import setting from "../assets/icons/setting.png";
 
 export default {
     building,
@@ -20,4 +33,17 @@ export default {
     home_ai,
     home_departure,
     home_hotel,
+    home,
+    homeActive,
+    user,
+    userActive,
+    bell,
+    bellActive,
+    lock,
+    call,
+    ticket,
+    ai,
+    help,
+    schedule,
+    setting,
 }
