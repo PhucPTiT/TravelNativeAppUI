@@ -279,7 +279,11 @@ const styles = StyleSheet.create({
         zIndex: 10,
         bottom: 0,
         width: '100%',
+        backgroundColor: COLORS.white,
     },
+    home: {
+        backgroundColor: 'white'
+    }
 });
 
 

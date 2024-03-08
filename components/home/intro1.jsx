@@ -17,7 +17,7 @@ const Intro1 = ({ item }) => {
                 <Text style={styles.text1}>Cafe Town</Text>
                 <Text style={styles.text2}>South Africa</Text>
                 <Text style={styles.text2}>Mountai Table</Text>
-                <Button style={styles.button} variant='primary'>View Deitel</Button>
+                <Button style={styles.button} variant='primary'>View Detail</Button>
             </View>
         </ImageBackground>
     )

@@ -13,7 +13,7 @@ const Login = () => {
         setShowPassword(!showPassword);
     };
 
-    const handellogin = () => {
+    const handleLogin = () => {
         router.push("/home")
     }
 
@@ -45,7 +45,7 @@ const Login = () => {
                         <Image source={icons.ggIcon} style={styles.iconBuilding} />
                         <Text style={{ fontFamily: 'Montserrat_SemiBold', fontSize: 14 }}>Google</Text>
                     </TouchableOpacity>
-                    <Button variant="primary" onPress={handellogin} style={styles.button}>
+                    <Button variant="primary" onPress={handleLogin} style={styles.button}>
                         Login
                     </Button>
                 </View>

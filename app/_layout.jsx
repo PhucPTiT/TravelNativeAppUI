@@ -1,5 +1,6 @@
 import { Slot, Stack, Tabs } from "expo-router";
 import { useFonts } from "expo-font";
+import NavBar from "../components/navigation";
 
 const RootLayout = () => {
     const [fontsLoaded] = useFonts({
@@ -26,13 +27,18 @@ const RootLayout = () => {
     if (!fontsLoaded) {
         return null;
     }
-    return (<Stack>
-        <Stack.Screen name="auth/index" options={{ headerShown: false }} />
-        <Stack.Screen name="auth/login/index" options={{ title: '' }} />
-        <Stack.Screen name="auth/sign-up/index" options={{ title: '' }} />
-        <Stack.Screen name="home/index" options={{ headerShown: false }} />
-        <Stack.Screen name="user/index" options={{ headerShown: false }} />
-    </Stack>);
+    return (
+        <Stack>
+            <Stack.Screen name="auth/index" options={{ headerShown: false }} />
+            <Stack.Screen name="auth/login/index" options={{ title: '' }} />
+            <Stack.Screen name="auth/sign-up/index" options={{ title: '' }} />
+            <Stack.Screen name="home/index" options={{ headerShown: false }} />
+            <Stack.Screen name="user/index" options={{ headerShown: false }} />
+            <Stack.Screen name="setting/index" options={{ title: '' }} />
+            <Stack.Screen name="user/changePassword/index" options={{ title: '' }} />
+            <Stack.Screen name="user/edit/index" options={{ title: '' }} />
+        </Stack>
+    );
 }
 
 export default RootLayout;

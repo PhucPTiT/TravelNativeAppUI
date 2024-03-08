@@ -6,6 +6,8 @@ const COLORS = {
     white: "#fff",
     error: '#EA4335',
     default: 'rgb(242,242,242)',
+    gray2: '#CACACA',
+    gray3: '#34495E',
   };
   
   const FONT = {

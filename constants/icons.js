@@ -21,6 +21,8 @@ import ai from "../assets/icons/ai.png";
 import help from "../assets/icons/help.png";
 import schedule from "../assets/icons/schedule.png";
 import setting from "../assets/icons/setting.png";
+import chevronRight from "../assets/icons/chevron-right.png";
+import camera from "../assets/icons/camera.png";
 
 export default {
     building,
@@ -46,4 +48,6 @@ export default {
     help,
     schedule,
     setting,
+    chevronRight,
+    camera
 }

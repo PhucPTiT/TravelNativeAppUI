@@ -1,24 +1,32 @@
 import React from 'react';
-import { View, Image, Text, StyleSheet } from 'react-native';
-import { FONT  } from '../../constants/theme'
+import {  Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { COLORS, FONT  } from '../../constants/theme';
+import { router } from 'expo-router';
 
-const Item = ({ icon, text }) => {
+const Item = ({ icon, text, href, text2}) => {
+  const onClick = () => {
+    router.push(href);
+  }
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onClick} style={styles.container}>
       <Text style={styles.text}>{text}</Text>
-      <Image source={icon} style={styles.icon} />
-    </View>
+      {icon && <Image source={icon} style={styles.icon} />}
+      {!icon && text2 && <Text style={styles.text2}>{text2}</Text>}
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    maxWidth: 354,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 10,
+    height: 40,
+    borderBottomColor: COLORS.gray,
+    borderBottomWidth: 1,
+    marginBottom: 30,
   },
   icon: {
     width: 20,
@@ -28,6 +36,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: FONT.medium
   },
+  text2: {
+    fontFamily: FONT.medium,
+    color: COLORS.gray2,
+  }
 });
 
 export default Item;

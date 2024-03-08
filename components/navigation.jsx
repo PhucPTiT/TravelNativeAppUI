@@ -1,23 +1,23 @@
 import React from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View, StyleSheet } from "react-native";
 import icons from "../constants/icons";
 import { useRouter } from "expo-router";
-import { FONT } from "../constants/theme";
+import { COLORS, FONT } from "../constants/theme";
 
 const NavBar = ({ activePage, style }) => {
   const router = useRouter();
 
   const handleNotify = () => {
-      router.push('/notifycation')
-  }
+    router.push('/notification');
+  };
 
   const handleHome = () => {
-      router.push('/home')
-  }
+    router.push('/home');
+  };
 
   const handleUser = () => {
-      router.push('/user')
-  }
+    router.push('/user');
+  };
   
   return (
     <View style={[styles.container, style]}>
@@ -27,37 +27,36 @@ const NavBar = ({ activePage, style }) => {
                 source={activePage === "home" ? icons.homeActive : icons.home}
                 style={styles.icon}
               />
-              <Text style= {styles.text}>Home</Text>
+              <Text style={[styles.text, activePage === "home" && styles.activeText]}>Home</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleNotify}>
-      <View style={styles.iconContainer}>
-          <Image
-            source={activePage === "notification" ? icons.bellActive : icons.bell}
-            style={styles.icon}
-          />
-          <Text style= {styles.text}>Notification</Text>
-      </View>
+          <View style={styles.iconContainer}>
+              <Image
+                source={activePage === "notification" ? icons.bellActive : icons.bell}
+                style={styles.icon}
+              />
+              <Text style={[styles.text, activePage === "notification" && styles.activeText]}>Notification</Text>
+          </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={handleUser}>
-      <View style={styles.iconContainer}>
-          <Image
-            source={activePage === "user" ? icons.userActive : icons.user}
-            style={styles.icon}
-          />
-          <Text style= {styles.text}>User</Text>
-      </View>
+          <View style={styles.iconContainer}>
+              <Image
+                source={activePage === "user" ? icons.userActive : icons.user}
+                style={styles.icon}
+              />
+              <Text style={[styles.text, activePage === "user" && styles.activeText]}>User</Text>
+          </View>
         </TouchableOpacity>
     </View>
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    backgroundColor: "#fff", // Add your desired background color
     paddingVertical: 10,
   },
   iconContainer: {
@@ -71,7 +70,10 @@ const styles = {
   text: {
     fontFamily: FONT.regular,
     fontSize: 16,
+  },
+  activeText: {
+    color: COLORS.primary
   }
-};
+});
 
 export default NavBar;
