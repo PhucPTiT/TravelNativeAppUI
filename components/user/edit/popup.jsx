@@ -3,11 +3,38 @@ import { Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, View, Modal 
 import { COLORS, FONT } from "../../../constants/theme";
 
 const { width, height } = Dimensions.get('screen');
-const Popup = ({ initialValue, onSave, onCancel, visible }) => {
+const Popup = ({ field, initialValue, onSave, onCancel, visible }) => {
     const [text, setText] = useState(initialValue);
 
     const handleSave = () => {
         onSave(text);
+    };
+
+    const handleDatePick = () => {
+        onSave(text);
+    }
+
+    const renderInput = () => {
+        switch (field) {
+            case 'Date of Birth':
+                return (
+                    <TouchableOpacity style={styles.datePickerButton} onPress={handleDatePick}>
+                        <Text style={styles.buttonText}>{text || 'Select Date'}</Text>
+                    </TouchableOpacity>
+                );
+            case 'Username':
+            case 'Address':
+            case 'Email':
+            case 'Phone':
+            default:
+                return (
+                    <TextInput
+                        style={styles.input}
+                        value={text}
+                        onChangeText={setText}
+                    />
+                );
+        }
     };
 
     return (
@@ -19,16 +46,12 @@ const Popup = ({ initialValue, onSave, onCancel, visible }) => {
         >
             <View style={styles.centeredView}>
                 <View style={styles.modalView}>
-                    <TextInput
-                        style={styles.input}
-                        value={text}
-                        onChangeText={setText}
-                    />
+                    {renderInput()}
                     <View style={styles.buttons}>
-                        <TouchableOpacity style={styles.button} onPress={onCancel}>
+                        <TouchableOpacity style={[styles.button, styles.cancelButton]} onPress={onCancel}>
                             <Text style={styles.buttonText}>Cancel</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.button} onPress={handleSave}>
+                        <TouchableOpacity style={[styles.button, styles.saveButton]} onPress={handleSave}>
                             <Text style={styles.buttonText}>Save</Text>
                         </TouchableOpacity>
                     </View>
@@ -70,13 +93,18 @@ const styles = StyleSheet.create({
         fontFamily: FONT.regular,
         color: COLORS.black,
     },
+    datePickerButton: {
+        borderBottomColor: COLORS.gray,
+        borderBottomWidth: 1,
+        marginBottom: 10,
+        paddingVertical: 10,
+    },
     buttons: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         gap: 12,
     },
     button: {
-        backgroundColor: COLORS.primary,
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 5,
@@ -84,6 +112,15 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 16,
         fontFamily: FONT.medium,
+    },
+    cancelButton: {
+        backgroundColor: COLORS.white,
+        borderWidth: 2,
+        borderColor: COLORS.primary,
+        color: COLORS.primary,
+    },
+    saveButton: {
+        backgroundColor: COLORS.primary,
         color: COLORS.white,
     },
 });
