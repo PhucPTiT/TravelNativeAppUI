@@ -11,7 +11,7 @@ const Search = () => {
                 style={styles.inputStyle}
                 textDecorationLine="none"
                 placeholderTextColor={'gray'}
-                placeholder="Search"
+                placeholder="Where are you going?"
             />
             {/* <Text>hshsh</Text> */}
         </View>
@@ -42,9 +42,9 @@ const styles = StyleSheet.create({
         flex: 1,
         borderRadius: 30,
         borderColor: COLORS.white,
-        textAlign: 'center',
+        textAlign: 'left',
         backgroundColor: COLORS.white,
-
+        marginLeft: 12
     },
 });
 

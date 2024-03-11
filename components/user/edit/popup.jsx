@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, View, Modal } from "react-native";
 import { COLORS, FONT } from "../../../constants/theme";
+import DatePicker from 'react-native-modern-datepicker';
 
 const { width, height } = Dimensions.get('screen');
 const Popup = ({ field, initialValue, onSave, onCancel, visible }) => {
@@ -18,9 +19,12 @@ const Popup = ({ field, initialValue, onSave, onCancel, visible }) => {
         switch (field) {
             case 'Date of Birth':
                 return (
-                    <TouchableOpacity style={styles.datePickerButton} onPress={handleDatePick}>
-                        <Text style={styles.buttonText}>{text || 'Select Date'}</Text>
-                    </TouchableOpacity>
+                    <DatePicker
+                    style={{width: '100%'}}
+                        mode="calendar"
+                        selected="date"
+                        onDateChanged={() => {}}
+                    />
                 );
             case 'Username':
             case 'Address':
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     modalView: {
-        margin: 20,
+        width: '90%',
         backgroundColor: COLORS.white,
         borderRadius: 10,
         padding: 35,
@@ -92,12 +96,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontFamily: FONT.regular,
         color: COLORS.black,
-    },
-    datePickerButton: {
-        borderBottomColor: COLORS.gray,
-        borderBottomWidth: 1,
-        marginBottom: 10,
-        paddingVertical: 10,
     },
     buttons: {
         flexDirection: 'row',

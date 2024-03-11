@@ -26,7 +26,7 @@ const Item = ({ field, text, style }) => {
             {editing ? (
                 <Popup field={field} initialValue={text} onSave={handleSave} onCancel={handleCancel} visible={editing} />
             ) : (
-                <Text style={styles.text}>{editedText}</Text>
+                <Text numberOfLines={1} ellipsizeMode="tail" style={styles.text}>{editedText}</Text>
             )}
         </TouchableOpacity>
     );
