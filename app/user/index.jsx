@@ -89,7 +89,7 @@ const list = [
     {
         text: "Ticket History",
         icon: icons.ticket,
-        href: "/tickethistory"
+        href: "user/ticketHistory"
     },
     {
         text: "AI Schedule",
@@ -99,7 +99,7 @@ const list = [
     {
         text: "Help Center",
         icon: icons.help,
-        href: "/help"
+        href: "user/help"
     },
     {
         text: "Schedules",
