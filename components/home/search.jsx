@@ -1,9 +1,15 @@
 import React from 'react'
 import { Image, StyleSheet, Text, TextInput, View } from "react-native";
 import { COLORS, FONT, SHADOWS } from "../../constants/theme";
+import { router } from "expo-router";
 import icons from '../../constants/icons';
 
 const Search = () => {
+
+    const handleSearch = () => {
+        router.push("/listResult")
+    }
+
     return (
         <View style={styles.inputWrap}>
             <Image source={icons.search} />
@@ -12,6 +18,7 @@ const Search = () => {
                 textDecorationLine="none"
                 placeholderTextColor={'gray'}
                 placeholder="Search"
+                onSubmitEditing={handleSearch}
             />
             {/* <Text>hshsh</Text> */}
         </View>

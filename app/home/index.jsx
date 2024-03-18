@@ -41,7 +41,7 @@ const Home = () => {
     };
 
     return (
-        <View style = {styles.home}>
+        <View style={styles.home}>
             <FlatList
                 data={[{ key: 'main', component: 'main' }, ...slides1, ...slides2, ...slides3, ...slides4]}
                 renderItem={({ item }) => {
@@ -69,11 +69,11 @@ const Home = () => {
                                     />
                                     <Pagination data={slides1} activeIndex={activeIndex} style={styles.pagination} />
                                 </View>
-                                
-                                <Action/>
-    
+
+                                <Action />
+
                                 <Text style={styles.text3}>Recommended List</Text>
-    
+
                                 <FlatList
                                     data={slides2}
                                     renderItem={({ item }) => <Intro2 item={item} />}
@@ -83,9 +83,9 @@ const Home = () => {
                                     snapToAlignment="center"
                                     showsHorizontalScrollIndicator={false}
                                 />
-    
+
                                 <Text style={styles.text3}>Popular Destination</Text>
-    
+
                                 <FlatList
                                     data={slides3}
                                     renderItem={({ item }) => <Intro3 item={item} />}
@@ -95,9 +95,9 @@ const Home = () => {
                                     snapToAlignment="center"
                                     showsHorizontalScrollIndicator={false}
                                 />
-    
+
                                 <Text style={styles.text4}>Best Deals</Text>
-    
+
                                 <FlatList
                                     data={slides4}
                                     renderItem={({ item }) => <Intro4 item={item} />}
@@ -117,9 +117,9 @@ const Home = () => {
                 horizontal={false} // Set this to true if you want the outer list to be horizontal
                 pagingEnabled={false}
                 showsVerticalScrollIndicator={false}
-                
+
             />
-            <NavBar activePage='home' style={styles.navbar}/>
+            <NavBar activePage='home' style={styles.navbar} />
         </View>
 
 
@@ -271,8 +271,8 @@ const styles = StyleSheet.create({
 
     pagination: {
         position: 'absolute',
-        bottom:10,
-        right:10,
+        bottom: 10,
+        right: 10,
     },
     navbar: {
         position: 'absolute',

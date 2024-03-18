@@ -1,22 +1,28 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import icons from "../../constants/icons";
 import { FONT } from "../../constants/theme";
+import { router } from "expo-router";
 
-const Action = ({style}) => {
-    return ( 
-        <View style = {[styles.action, style]}>
-            <View style = {styles.actionItem}>
-                <Image source={icons.home_departure} style={styles.icon}/>
-                <Text style = {styles.text}>Vehicle</Text>
-            </View>
-            <View style = {styles.actionItem}>
-                <Image source={icons.home_hotel} style={styles.icon}/>
-                <Text style = {styles.text}>Hotel</Text>
-            </View>
-            <View style = {styles.actionItem}>
-                <Image source={icons.home_ai} style={styles.icon}/>
-                <Text style = {styles.text}>Pershot AI</Text>
-            </View>
+const Action = ({ style }) => {
+
+    const handleHotelPress = () => {
+        router.push("hotel")
+    }
+
+    return (
+        <View style={[styles.action, style]}>
+            <TouchableOpacity style={styles.actionItem}>
+                <Image source={icons.home_departure} style={styles.icon} />
+                <Text style={styles.text}>Vehicle</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleHotelPress} style={styles.actionItem}>
+                <Image source={icons.home_hotel} style={styles.icon} />
+                <Text style={styles.text}>Hotel</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.actionItem}>
+                <Image source={icons.home_ai} style={styles.icon} />
+                <Text style={styles.text}>Pershot AI</Text>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -41,5 +47,5 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 })
- 
+
 export default Action;
