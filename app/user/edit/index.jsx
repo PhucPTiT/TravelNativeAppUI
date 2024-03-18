@@ -1,11 +1,20 @@
 import { Stack } from "expo-router";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { COLORS, FONT } from "../../../constants/theme";
 import Avatar from "../../../components/ui/avatar";
 import icons from "../../../constants/icons";
 import Item from "../../../components/user/edit/item";
+import { useState } from "react";
+import BoxHandleImage from "../../../components/user/edit/boxImage";
 
 const EditProfile = () => {
+    const [imageUri, setImageUri] = useState(image); 
+    const [modalVisible, setModalVisible] = useState(false)
+
+    const handleChoosePhoto = () => {
+        setModalVisible(false);
+    }
+
     return ( 
         <View style = {styles.editPage}>
             <Stack.Screen
@@ -16,16 +25,23 @@ const EditProfile = () => {
                 }}
             />
             <Text style = {styles.edit}>Edit Profile</Text>
-            <TouchableOpacity style = {styles.wrapAvatar}>
+            <View style = {styles.wrapAvatar}  >
                 <Avatar
                     imageBase64={image}
                     style = {styles.avatar}
                 />
-                <View style = {styles.wrapCam}><Image source={icons.camera} style={styles.iconCamera}/></View>
-            </TouchableOpacity>
+                <TouchableOpacity  onPress={() => setModalVisible(true)} style = {styles.wrapCam}><Image source={icons.camera} style={styles.iconCamera}/></TouchableOpacity>
+            </View>
             {list.map((item, index) => (
                 <Item key = {index} field={item.field} text = {item.text} />
             ))}
+
+            <BoxHandleImage
+                modalVisible={modalVisible}
+                setModalVisible={setModalVisible}
+                handleChoosePhoto={handleChoosePhoto}
+            />
+            
 
         </View>
     );

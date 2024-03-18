@@ -23,6 +23,7 @@ import schedule from "../assets/icons/schedule.png";
 import setting from "../assets/icons/setting.png";
 import chevronRight from "../assets/icons/chevron-right.png";
 import camera from "../assets/icons/camera.png";
+import plane from "../assets/icons/plane.png";
 
 export default {
     building,
@@ -49,5 +50,6 @@ export default {
     schedule,
     setting,
     chevronRight,
-    camera
+    camera,
+    plane,
 }

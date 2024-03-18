@@ -64,7 +64,7 @@ const Signup = () => {
                         </Text>
                         <TouchableOpacity variant="secondary" onPress={() =>    {}} style={[styles.button, styles.buttonIm]}>
                             <Image source={icons.ggIcon} />
-                            <Text style={{fontFamily: 'Montserrat_Medium',fontSize: 14, fontWeight: 600}}>Google</Text>
+                            <Text style={{fontFamily: 'Montserrat_Mediu',fontSize: 14, fontWeight: 600}}>Google</Text>
                         </TouchableOpacity>
                         <Text style = {styles.textOptions}>Or Sign up using</Text>
                         <View style = {styles.formData}>

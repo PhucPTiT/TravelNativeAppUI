@@ -12,20 +12,24 @@ const buttonVariants = {
     color: "black",
   },
   outline: {
+    borderWidth: 2,
     borderColor: COLORS.primary,
-    borderWidth: 1,
     backgroundColor: "white",
-    color: "black",
+    color: COLORS.primary,
   },
 };
 
-const Button = ({ variant = "default", onPress, children, style, disabled }) => {
-  const variantStyles = buttonVariants[variant] || buttonVariants.default;
+const Button = ({ variant, onPress, children, style, disabled }) => {
+  const variantStyles = buttonVariants[variant] || buttonVariants.primary;
   const buttonOpacity = disabled ? 0.5 : 1; 
 
   const buttonStyles = [
     styles.button,
-    { backgroundColor: variantStyles.backgroundColor },
+    { 
+      backgroundColor: variantStyles.backgroundColor,
+      borderColor: variantStyles.borderColor, 
+      borderWidth: variantStyles.borderWidth,
+    },
     Platform.OS === "ios" ? styles.shadowIOS : styles.shadowAndroid, // Chọn hiệu ứng bóng đổ dựa trên nền tảng
     style,
     { opacity: buttonOpacity }

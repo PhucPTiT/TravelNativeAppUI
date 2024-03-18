@@ -1,9 +1,9 @@
+import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { COLORS, FONT } from "../../../constants/theme";
-import { useState } from "react";
 import Popup from "./popup";
 
-const Item = ({field, text, style}) => {
+const Item = ({ field, text, style }) => {
     const [editing, setEditing] = useState(false);
     const [editedText, setEditedText] = useState(text);
 
@@ -11,27 +11,27 @@ const Item = ({field, text, style}) => {
         setEditing(true);
     };
 
-    
     const handleSave = (newText) => {
         setEditing(false);
-    }
+        setEditedText(newText);
+    };
 
     const handleCancel = () => {
         setEditing(false);
     };
 
-    return ( 
-        <TouchableOpacity style = {[styles.item, style]} onPress={handleEdit}>
-            <Text style = {styles.field}>{field}</Text>
+    return (
+        <TouchableOpacity style={[styles.item, style]} onPress={handleEdit}>
+            <Text style={styles.field}>{field}</Text>
             {editing ? (
-                <Popup initialValue={text} onSave={handleSave} onCancel={handleCancel} />
+                <Popup field={field} initialValue={text} onSave={handleSave} onCancel={handleCancel} visible={editing} />
             ) : (
-                <Text style={styles.text}>{editedText}</Text>
+                <Text numberOfLines={1} ellipsizeMode="tail" style={styles.text}>{editedText}</Text>
             )}
         </TouchableOpacity>
     );
-}
- 
+};
+
 export default Item;
 
 const styles = StyleSheet.create({
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
         fontFamily: FONT.medium,
         color: COLORS.black
     }
-})
+});
