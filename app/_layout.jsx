@@ -39,6 +39,7 @@ const RootLayout = () => {
             <Stack.Screen name="user/edit/index" options={{ title: '' }} />
             <Stack.Screen name="user/help/index" options={{ title: '' }} />
             <Stack.Screen name="user/ticketHistory/index" options={{ title: '' }} />
+            <Stack.Screen name="detail/ticket/[id]" options={{ title: '' }} />
         </Stack>
     );
 }
