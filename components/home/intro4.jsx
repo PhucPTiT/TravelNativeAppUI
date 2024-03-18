@@ -41,7 +41,11 @@ const styles = StyleSheet.create({
         position: 'relative',
         justifyContent: 'flex-end',
         borderRadius: 20,
-
+        borderWidth: 1,
+        borderColor: COLORS.gray,
+        width: 375,
+        height: 150,
+        ...SHADOWS.default,
 
     },
     icon: {
