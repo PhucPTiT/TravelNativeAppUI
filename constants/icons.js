@@ -24,6 +24,7 @@ import setting from "../assets/icons/setting.png";
 import chevronRight from "../assets/icons/chevron-right.png";
 import camera from "../assets/icons/camera.png";
 import plane from "../assets/icons/plane.png";
+import bellNotifi from "../assets/icons/bellNotifi.png";
 
 export default {
     building,
@@ -52,4 +53,5 @@ export default {
     chevronRight,
     camera,
     plane,
+    bellNotifi
 }
