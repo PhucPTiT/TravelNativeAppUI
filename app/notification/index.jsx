@@ -36,7 +36,7 @@ const Notification = () => {
                     
                 />
             </View>
-            <NavBar activePage='user' style={styles.navbar}/>
+            <NavBar activePage='notification' style={styles.navbar}/>
         </View>
      );
 }

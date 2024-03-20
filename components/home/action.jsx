@@ -9,9 +9,13 @@ const Action = ({ style }) => {
         router.push("hotel")
     }
 
+    const handleVehiclePress = () => {
+        router.push("bookvehicle")
+    }
+
     return (
         <View style={[styles.action, style]}>
-            <TouchableOpacity style={styles.actionItem}>
+            <TouchableOpacity onPress={handleVehiclePress} style={styles.actionItem}>
                 <Image source={icons.home_departure} style={styles.icon} />
                 <Text style={styles.text}>Vehicle</Text>
             </TouchableOpacity>

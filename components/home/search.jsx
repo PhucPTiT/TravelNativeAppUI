@@ -17,7 +17,6 @@ const Search = () => {
                 style={styles.inputStyle}
                 textDecorationLine="none"
                 placeholderTextColor={'gray'}
-                placeholder="Search"
                 onSubmitEditing={handleSearch}
                 placeholder="Where are you going?"
             />

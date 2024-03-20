@@ -25,6 +25,9 @@ import chevronRight from "../assets/icons/chevron-right.png";
 import camera from "../assets/icons/camera.png";
 import plane from "../assets/icons/plane.png";
 import bellNotifi from "../assets/icons/bellNotifi.png";
+import filter from "../assets/icons/filter.png"
+import sort from "../assets/icons/sort.png";
+import locationRed from "../assets/icons/location_red.png";
 
 export default {
     building,
@@ -53,5 +56,8 @@ export default {
     chevronRight,
     camera,
     plane,
-    bellNotifi
+    bellNotifi,
+    filter,
+    sort,
+    locationRed
 }
