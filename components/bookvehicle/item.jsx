@@ -1,38 +1,48 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import icons from "../../constants/icons";
+import { COLORS, FONT } from "../../constants/theme";
 
-const Item = ({item}) => {
+const Item = ({item, style}) => {
     return ( 
-        <ImageBackground source = {item.image}>
-            <View style = {styles.header}>
-                <Text>{item.brand}</Text>
-                <Text>{item.destination}</Text>
-            </View>
-            <View style = {styles.footer}>
-                <View>
-                    <View>
-                        <Image source={icons.locationRed}/>
-                        <Text>
-                            {item.local}
-                        </Text>
-                    </View>
-                    <StarRating rating={4}/> 
+        <TouchableOpacity style = {[styles.item, style]}>
+            <ImageBackground resizeMode="cover" imageStyle = {styles.image} source = {item.image}>
+                <View style = {styles.header}>
+                    <Text style = {{fontSize: 14, fontFamily: FONT.bold}}>{item.brand}</Text>
+                    <Text style = {{fontSize: 9, fontFamily: FONT.regular}}>{item.destination}</Text>
                 </View>
-                <Text>
-                    {item.price} $
-                </Text>
-            </View>
-        </ImageBackground>
+                <View style = {styles.footer}>
+                    <View>
+                        <View style = {{flexDirection: 'row', alignItems: 'center', marginBottom: 12}}>
+                            <Image style={{width: 10, height: 10}} source={icons.locationRed}/>
+                            <Text style = {{fontFamily: FONT.regular, fontSize: 9}}>
+                                {item.local}
+                            </Text>
+                        </View>
+                        <StarRating rating={item.rating}/> 
+                    </View>
+                    <Text style = {{fontFamily: FONT.semibold, fontSize: 14, color: COLORS.gold}}>
+                        {item.price} $
+                    </Text>
+                </View>
+            </ImageBackground>
+        </TouchableOpacity>
      );
 }
  
 export default Item;
 
 const styles = StyleSheet.create({
+    item: {
+        width: '100%',
+        borderRadius: 20,
+        marginBottom: 20,
+        overflow: 'hidden',
+        height: 134,
+        backgroundColor: 'aqua',
+    },
     image: {
-        paddingHorizontal: 30,
-        paddingVertical: 6,
-        justifyContent: 'space-between'
+        height: 134,
+        width: '100%',
     },
 
     filledStar: {
@@ -44,6 +54,17 @@ const styles = StyleSheet.create({
     starContainer: {
         flexDirection: 'row',
     },
+    footer: {
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        justifyContent: 'space-between',
+        marginTop: 44,
+        paddingHorizontal: 20,
+    },
+    header: {
+        paddingHorizontal: 20,
+        paddingTop: 8,
+    }
 })
 
 const StarRating = ({ rating }) => {

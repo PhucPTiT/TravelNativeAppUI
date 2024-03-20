@@ -4,13 +4,28 @@ import { COLORS, FONT } from "../../constants/theme";
 import Search from "../../components/bookvehicle/search";
 import icons from "../../constants/icons";
 import Item from "../../components/bookvehicle/item";
+import { useState } from "react";
+import FilterModal from "../../components/bookvehicle/filter";
 
 
 const BookingVehicle = () => {
     const image = require('../../assets/images/bookvehicle_1.png');
+    const [sort, setSort] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
+
+    const handleSortTicketsbyPrice = () => {
+        if(sort) {
+            listTicket.sort((a, b) => a.price - b.price)
+            setSort(false)
+        }
+        else {
+            listTicket.sort((a, b) => b.price - a.price)
+            setSort(true)
+        }
+    }
 
     return ( 
-        <View>
+        <View style = {{flex: 1, backgroundColor: COLORS.white, flex: 1}}>
             <Stack.Screen
                 options={{
                     headerStyle: { backgroundColor: 'rgb(242,242,242)' },
@@ -25,7 +40,7 @@ const BookingVehicle = () => {
             /> 
             <ImageBackground source={image} resizeMode="cover" style={styles.image}>
                 <View style={styles.header}> 
-                    <Search/>
+                    <Search openFilter={() => setModalVisible(true)}/>
                     <View style = {styles.row}>
                         <View style = {styles.col}>
                             <Text style = {{fontSize: 14, fontFamily: FONT.regular}}>
@@ -55,29 +70,42 @@ const BookingVehicle = () => {
             <View style = {styles.body}>
                 <View style = {styles.row}>
                     <Text style = {{fontSize: 16, fontFamily: FONT.bold}}>Best Tickets</Text>
-                    <TouchableOpacity style = {styles.wrapSort}>
+                    <TouchableOpacity style = {styles.wrapSort} onPress={handleSortTicketsbyPrice}>
                         <Text style = {{fontSize: 14, fontFamily: FONT.bold}}>Filter</Text>
                         <Image style ={{width: 24, height: 24}}  source={icons.sort}/>
                     </TouchableOpacity>
                 </View>
-                <View style = {styles.listTicket}>
-                    <FlatList
-                        data={listTicket}
-                        renderItem={({ item }) => <Item style = {{shadowColor: 'rgb(0, 0, 0)',
-                        shadowOffset: {
-                            width: 3,
-                            height: 3,
-                        },
-                        shadowOpacity: 0.5,
-                        shadowRadius: 5,
-                        elevation: 2,
-                        backgroundColor: 'white',
-                        paddingHorizontal: 10,}} item={item} />}
-                        keyExtractor={(item, index) => index.toString()}
-                        showsVerticalScrollIndicator={false} 
-                    />
+                <View style = {styles.listTickets}>
+                    {
+                        listTicket.length > 0 ?
+                        <FlatList
+                            data={listTicket}
+                            renderItem={({ item }) => 
+                            <Item style = {{
+                                shadowColor: 'rgb(0, 0, 0)',
+                                shadowOffset: {
+                                    width: 3,
+                                    height: 3,
+                                },
+                                shadowOpacity: 0.5,
+                                shadowRadius: 5,
+                                elevation: 2,}} 
+                                item={item}
+                            />}
+                            keyExtractor={(item, index) => index.toString()}
+                            showsVerticalScrollIndicator={false} 
+                        /> : 
+                        <View style = {{alignItems: 'center'}}>
+                            <Image source={image_noList} style={{width: 300, height: 300}}/>
+                            <Text style={{fontSize: 16, fontFamily: FONT.bold, textAlign: 'center'}}>No tickets available</Text>
+                        </View>
+                    }
                 </View>
             </View>
+            <FilterModal
+                modalVisible={modalVisible}
+                setModalVisible={setModalVisible}
+            />
         </View>
      );
 }
@@ -118,12 +146,16 @@ const styles = StyleSheet.create({
     },
     body: {
         paddingHorizontal: 20,
+        flex: 1,
     },
     wrapSort: {
         flexDirection: 'row',
         alignItems: 'center',
         gap: 8,
     },
+    listTickets: {
+        flex: 1,
+    }
 })
 
 const listTicket = [
@@ -132,27 +164,49 @@ const listTicket = [
         brand: "Plane Burj Al Arab",
         destination: "Dubai - Uni Emirat Arab",
         local: "VIE",
-        price: "8"
+        price: "800000",
+        rating: 5,
     },
     {
         image:require('../../assets/images/bookvehicleBg.png'),
         brand: "Plane Burj Al Arab",
         destination: "Dubai - Uni Emirat Arab",
         local: "VIE",
-        price: "8"
+        rating: 5,
+        price: "81000000"
     },
     {
         image:require('../../assets/images/bookvehicleBg.png'),
         brand: "Plane Burj Al Arab",
         destination: "Dubai - Uni Emirat Arab",
         local: "VIE",
-        price: "8"
+        rating: 5,
+        price: "5858583000"
     },
     {
         image:require('../../assets/images/bookvehicleBg.png'),
         brand: "Plane Burj Al Arab",
         destination: "Dubai - Uni Emirat Arab",
         local: "VIE",
-        price: "8"
+        rating: 5,
+        price: "80048473"
+    },
+    {
+        image:require('../../assets/images/bookvehicleBg.png'),
+        brand: "Plane Burj Al Arab",
+        destination: "Dubai - Uni Emirat Arab",
+        local: "VIE",
+        rating: 5,
+        price: "8546546"
+    },
+    {
+        image:require('../../assets/images/bookvehicleBg.png'),
+        brand: "Plane Burj Al Arab",
+        destination: "Dubai - Uni Emirat Arab",
+        local: "VIE",
+        rating: 5,
+        price: "84563456356"
     },
 ]
+
+const image_noList = require('../../assets/images/bookingvehicle_0.png');

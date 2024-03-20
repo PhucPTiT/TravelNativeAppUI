@@ -2,7 +2,7 @@ import { Image, StyleSheet, TextInput, TouchableOpacity, View } from "react-nati
 import icons from "../../constants/icons";
 import { COLORS } from "../../constants/theme";
 
-const Search = ({style}) => {
+const Search = ({style, openFilter}) => {
     return ( 
         <View style={[styles.inputWrapr, style]}>
             <TextInput
@@ -12,7 +12,7 @@ const Search = ({style}) => {
                 onSubmitEditing={() => {}}
                 placeholder="Search Vehicle"
             />
-            <TouchableOpacity style = {styles.wrapFilter}><Image style = {styles.icon} source={icons.filter} /></TouchableOpacity>
+            <TouchableOpacity onPress={openFilter} style = {styles.wrapFilter}><Image style = {styles.icon} source={icons.filter} /></TouchableOpacity>
         </View>
      );
 }

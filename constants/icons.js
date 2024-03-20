@@ -28,6 +28,8 @@ import bellNotifi from "../assets/icons/bellNotifi.png";
 import filter from "../assets/icons/filter.png"
 import sort from "../assets/icons/sort.png";
 import locationRed from "../assets/icons/location_red.png";
+import plane1 from "../assets/icons/plane1.png";
+import plane2 from "../assets/icons/plane2.png";
 
 export default {
     building,
@@ -59,5 +61,7 @@ export default {
     bellNotifi,
     filter,
     sort,
-    locationRed
+    locationRed,
+    plane1,
+    plane2,
 }
