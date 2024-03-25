@@ -12,6 +12,9 @@ const Action = ({ style }) => {
     const handleVehiclePress = () => {
         router.push("bookvehicle")
     }
+    const handlePershotPress = () => {
+        router.push("ai")
+    }
 
     return (
         <View style={[styles.action, style]}>
@@ -23,7 +26,7 @@ const Action = ({ style }) => {
                 <Image source={icons.home_hotel} style={styles.icon} />
                 <Text style={styles.text}>Hotel</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.actionItem}>
+            <TouchableOpacity onPress = {handlePershotPress} style={styles.actionItem}>
                 <Image source={icons.home_ai} style={styles.icon} />
                 <Text style={styles.text}>Pershot AI</Text>
             </TouchableOpacity>

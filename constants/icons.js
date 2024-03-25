@@ -30,6 +30,9 @@ import sort from "../assets/icons/sort.png";
 import locationRed from "../assets/icons/location_red.png";
 import plane1 from "../assets/icons/plane1.png";
 import plane2 from "../assets/icons/plane2.png";
+import upload from "../assets/icons/upload.png";
+import bin from "../assets/icons/bin.png";
+import share from "../assets/icons/share.png"
 
 export default {
     building,
@@ -64,4 +67,7 @@ export default {
     locationRed,
     plane1,
     plane2,
+    upload,
+    bin,
+    share
 }

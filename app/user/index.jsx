@@ -94,7 +94,7 @@ const list = [
     {
         text: "AI Schedule",
         icon: icons.ai,
-        href: "/ai"
+        href: "ai"
     },
     {
         text: "Help Center",
@@ -104,7 +104,7 @@ const list = [
     {
         text: "Schedules",
         icon: icons.schedule,
-        href: "/schedules"
+        href: "/schedule"
     },
     {
         text: "Setting",
