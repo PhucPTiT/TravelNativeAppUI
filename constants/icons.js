@@ -24,6 +24,9 @@ import setting from "../assets/icons/setting.png";
 import chevronRight from "../assets/icons/chevron-right.png";
 import camera from "../assets/icons/camera.png";
 import plane from "../assets/icons/plane.png";
+import filter from "../assets/icons/filter.png";
+import sort from "../assets/icons/sort.png";
+import compare from "../assets/icons/compare.png";
 
 export default {
     building,
@@ -52,4 +55,7 @@ export default {
     chevronRight,
     camera,
     plane,
+    filter,
+    sort,
+    compare
 }
