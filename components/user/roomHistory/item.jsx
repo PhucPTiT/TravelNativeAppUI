@@ -1,45 +1,47 @@
-import React from 'react';
-import {  Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { COLORS, FONT  } from '../../constants/theme';
-import { router } from 'expo-router';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FONT, SHADOWS } from "../../../constants/theme";
+import { router } from "expo-router";
 
-const Item = ({ icon, text, href, text2}) => {
-  const onClick = () => {
-    router.push(href);
-  }
+const Item = ({item}) => {
 
-  return (
-    <TouchableOpacity onPress={onClick} style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
-      {icon && <Image source={icon} style={styles.icon} />}
-      {!icon && text2 && <Text style={styles.text2}>{text2}</Text>}
-    </TouchableOpacity>
-  );
-};
+    const handleSelect = () => {
+        router.push (
+            {
+                pathname: `/detail/room/${item.name}`,
+            },
+        )
+    }
+    return ( 
+        <TouchableOpacity style = {styles.item} onPress={handleSelect}>
+            <Image style={styles.image} source={item.image} resizeMode="cover"/>
+            <Text style = {styles.name}>{item.name}</Text>
+            <Text style = {styles.location}>{item.location}</Text>
+        </TouchableOpacity>
+    );
+}
+ 
+export default Item;
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    height: 40,
-    borderBottomColor: COLORS.gray,
-    borderBottomWidth: 1,
-    marginBottom: 30,
-  },
-  icon: {
-    width: 20,
-    height: 20,
-  },
-  text: {
-    fontSize: 16,
-    fontFamily: FONT.medium
-  },
-  text2: {
-    fontFamily: FONT.medium,
-    color: COLORS.gray2,
-  }
-});
-
-export default Item;
+    item: {
+        width: '45%', 
+        margin: '2.5%', 
+        backgroundColor: 'white', 
+        borderRadius: 8, 
+        overflow: 'hidden', 
+        ...SHADOWS.all
+    },
+    image: {
+        height: 160,
+    },
+    name: {
+        fontSize: 16,
+        fontFamily: FONT.bold,
+        margin:4
+    },
+    location: {
+        fontSize: 12,
+        fontFamily: FONT.regular,
+        margin:4
+    },
+})

@@ -84,7 +84,7 @@ const list = [
     {
         text: "Travel agent",
         icon: icons.call,
-        href: "/agent"
+        href: "user/roomHistory"
     },
     {
         text: "Ticket History",

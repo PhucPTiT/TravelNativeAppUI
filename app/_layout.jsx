@@ -42,7 +42,9 @@ const RootLayout = () => {
             <Stack.Screen name="hotel/index" options={{ title: 'Explore' }} />
             <Stack.Screen name="user/help/index" options={{ title: '' }} />
             <Stack.Screen name="user/ticketHistory/index" options={{ title: '' }} />
+            <Stack.Screen name="user/roomHistory/index" options={{ title: '' }} />
             <Stack.Screen name="detail/ticket/[id]" options={{ title: '' }} />
+            <Stack.Screen name="detail/room/[id]" options={{ title: '' }} />
             <Stack.Screen name="notification/index" options={{ title: 'Notification' }} />
             <Stack.Screen name="bookvehicle/index" options={{ title: 'Book Vehicle' }} />
             <Stack.Screen name="schedule/index" options={{ title: 'Schedule' }} />

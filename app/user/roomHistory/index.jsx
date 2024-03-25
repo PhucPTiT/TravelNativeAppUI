@@ -14,7 +14,7 @@ const RoomHistory = () => {
                 }}
             />
             <View style = {styles.header}>
-                <Text style = {styles.ticketHistory}>Tickets History</Text>
+                <Text style = {styles.ticketHistory}>Rooms History</Text>
                 <View style={styles.inputWrap}>
                     <Image source={icons.search} />
                     <TextInput
