@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FlatList, Image, StyleSheet, Text, View } from 'react-native'
 import { Stack, router } from "expo-router";
 import ListRoom from '../../components/hotel/listRoom';
 import SearchHotel from '../../components/hotel/search';
 import { FONT } from '../../constants/theme';
 import icons from '../../constants/icons';
+import FilterModal from '../../components/bookvehicle/filter';
 
 const Hotel = () => {
+
+    const [modalVisible, setModalVisible] = useState(false);
     return (
         <View style={styles.container}>
             <Stack.Screen
@@ -25,7 +28,7 @@ const Hotel = () => {
             />
 
             <View style={styles.searchContainer}>
-                <SearchHotel />
+                <SearchHotel openFilter={() => setModalVisible(true)} />
             </View>
 
             <View style={styles.roomContainer}>
@@ -46,6 +49,10 @@ const Hotel = () => {
                     showsHorizontalScrollIndicator={false}
                 />
             </View>
+            <FilterModal
+                modalVisible={modalVisible}
+                setModalVisible={setModalVisible}
+            />
         </View>
     )
 }

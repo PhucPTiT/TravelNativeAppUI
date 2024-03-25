@@ -1,14 +1,22 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
 import { FONT } from '../../constants/theme';
 import icons from '../../constants/icons';
+import { Stack, router } from "expo-router";
 
 const ListRoom = ({ item }) => {
+
+    const handleClick = () => {
+        router.push("/hotel/infoRoom")
+    }
+
     return (
         <View style={styles.listpage}>
-            <View style={styles.imageContainer}>
-                <Image style={styles.image} source={item.url} resizeMode="cover" />
-            </View>
+            <TouchableOpacity onPress={handleClick}>
+                <View style={styles.imageContainer}>
+                    <Image style={styles.image} source={item.url} resizeMode="cover" />
+                </View>
+            </TouchableOpacity>
             <View style={styles.text}>
                 <View style={styles.t1}>
                     <Text style={styles.text1}>{item.text1}</Text>
