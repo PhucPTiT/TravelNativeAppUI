@@ -12,7 +12,7 @@ const Search = () => {
 
     return (
         <View style={styles.inputWrap}>
-            <Image source={icons.search} />
+            <Image source={icons.search2} />
             <TextInput
                 style={styles.inputStyle}
                 textDecorationLine="none"

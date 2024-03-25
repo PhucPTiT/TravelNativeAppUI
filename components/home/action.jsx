@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import icons from "../../constants/icons";
-import { FONT } from "../../constants/theme";
+import { COLORS, FONT } from "../../constants/theme";
 import { router } from "expo-router";
 
 const Action = ({ style }) => {
@@ -37,21 +37,31 @@ const Action = ({ style }) => {
 const styles = StyleSheet.create({
     action: {
         flexDirection: 'row',
-        width: '100%',
         justifyContent: 'space-around',
         marginVertical: 12,
+        height: 100,
+        marginHorizontal: 30,
+        borderRadius: 20,
+        opacity: 0.8,
+        alignItems: 'center',
     },
     actionItem: {
-
+        width: 100,
+        borderRadius: 20,
+        padding: 10,
+        alignItems: 'center',
+        backgroundColor:COLORS.gray2,
     },
     icon: {
-
+        maxWidth: 50,
+        maxHeight: 50,
     },
     text: {
         marginTop: 4,
-        fontFamily: FONT.medium,
+        fontFamily: FONT.semibold,
         fontSize: 14,
         textAlign: 'center',
+        color: COLORS.black,
     },
 })
 

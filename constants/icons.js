@@ -32,8 +32,9 @@ import plane1 from "../assets/icons/plane1.png";
 import plane2 from "../assets/icons/plane2.png";
 import upload from "../assets/icons/upload.png";
 import bin from "../assets/icons/bin.png";
-import share from "../assets/icons/share.png"
+import share from "../assets/icons/share.png";
 import compare from "../assets/icons/compare.png";
+import search2 from "../assets/icons/search2.png";
 
 export default {
     building,
@@ -71,5 +72,7 @@ export default {
     upload,
     bin,
     share,
-    compare
+    compare,
+    search2
+    
 }

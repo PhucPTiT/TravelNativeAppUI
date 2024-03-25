@@ -98,15 +98,17 @@ const Home = () => {
 
                                 <Text style={styles.text4}>Best Deals</Text>
 
-                                <FlatList
-                                    data={slides4}
-                                    renderItem={({ item }) => <Intro4 item={item} />}
-                                    keyExtractor={(item, index) => index.toString()}
-                                    horizontal={false}
-                                    pagingEnabled
-                                    snapToAlignment="center"
-                                    showsHorizontalScrollIndicator={false}
-                                />
+                                <View style = {{marginHorizontal: 30, marginBottom: 20}}>
+                                    <FlatList
+                                        data={slides4}
+                                        renderItem={({ item }) => <Intro4 item={item} />}
+                                        keyExtractor={(item, index) => index.toString()}
+                                        horizontal={false}
+                                        pagingEnabled
+                                        snapToAlignment="center"
+                                        showsHorizontalScrollIndicator={false}
+                                    />
+                                </View>
                             </View>
                         );
                     } else {

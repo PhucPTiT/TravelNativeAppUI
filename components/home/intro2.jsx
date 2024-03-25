@@ -1,16 +1,17 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { COLORS, FONT } from '../../constants/theme'
+import { router } from 'expo-router'
 
 const Intro2 = ({ item }) => {
     return (
-        <View style={styles.item}>
+        <TouchableOpacity onPress={() => {router.push('listResult/infoResult')}} style={styles.item}>
             <View style={styles.text}>
                 <Text style={styles.text1} >{item.text1}</Text>
                 <Text style={styles.text2} >{item.text2}</Text>
             </View>
             <Image style={styles.image2} source={item.url} resizeMode="cover" />
-        </View>
+        </TouchableOpacity>
     )
 }
 

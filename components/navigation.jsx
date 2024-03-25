@@ -58,6 +58,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     paddingVertical: 10,
+    borderTopEndRadius: 40,
+    borderTopStartRadius: 40,
   },
   iconContainer: {
     alignItems: "center",
@@ -72,7 +74,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   activeText: {
-    color: COLORS.primary
+    color: COLORS.primary,
+    fontFamily: FONT.bold,
   }
 });
 

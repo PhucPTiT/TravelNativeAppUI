@@ -3,6 +3,7 @@ import { Dimensions, FlatList, Image, ImageBackground, StyleSheet, Text, TextInp
 
 import { COLORS, FONT } from '../../constants/theme'
 import Button from '../ui/button';
+import { router } from 'expo-router';
 
 
 const { width, height } = Dimensions.get('screen');
@@ -17,7 +18,7 @@ const Intro1 = ({ item }) => {
                 <Text style={styles.text1}>Cafe Town</Text>
                 <Text style={styles.text2}>South Africa</Text>
                 <Text style={styles.text2}>Mountai Table</Text>
-                <Button style={styles.button} variant='primary'>View Detail</Button>
+                <Button onPress={() => {router.push('listResult/infoResult')}} style={styles.button} variant='primary'>View Detail</Button>
             </View>
         </ImageBackground>
     )

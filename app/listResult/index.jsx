@@ -2,6 +2,7 @@ import React from 'react'
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import { Stack, router } from "expo-router";
 import List from '../../components/listResult/list';
+import { COLORS, FONT } from '../../constants/theme';
 
 
 
@@ -16,7 +17,8 @@ const ListResult = () => {
                     headerTintColor: '#000',
                     headerShadowVisible: false,
                     headerTitleStyle: {
-
+                        fontFamily: FONT.bold,
+                        fontSize: 22,
                     },
                     headerTitleAlign: 'center',
 
@@ -42,8 +44,28 @@ export default ListResult
 const slides = [
     {
         url: require('../../assets/images/vanMieu.png'),
+        text1: 'Văn Miếu Quốc Tử Giám',
+        location: 'HaNoi, VietNam'
+    },
+    {
+        url: require('../../assets/images/list_1.png'),
+        text1: 'Burj Al Arab',
+        text2: '$ 9.999.999'
+    },
+    {
+        url: require('../../assets/images/vanMieu.png'),
         text1: 'Văn Miếu Quốc',
-        text2: 'HaNoi'
+        location: 'HaNoi, VietNam'
+    },
+    {
+        url: require('../../assets/images/list_1.png'),
+        text1: 'Burj Al Arab',
+        text2: '$ 9.999.999'
+    },
+    {
+        url: require('../../assets/images/vanMieu.png'),
+        text1: 'Văn Miếu Quốc',
+        location: 'HaNoi, VietNam'
     },
     {
         url: require('../../assets/images/list_1.png'),
@@ -56,5 +78,7 @@ const slides = [
 const styles = StyleSheet.create({
     listResult: {
         alignItems: 'center',
+        flex: 1,
+        backgroundColor: COLORS.white,
     }
 })
