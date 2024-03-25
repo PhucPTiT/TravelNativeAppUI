@@ -20,6 +20,10 @@ const InfoRoom = () => {
         router.push("hotel/compare")
     }
 
+    const handleBook = () => {
+        router.push("user/roomHistory")
+    }
+
     const initialText = "This luxury and well-known hotel overlooking the Chao Phraya river is a 3-minute walk from the nearest ferry stop.";
     const [isExpanded, setIsExpanded] = useState(true); // State để kiểm tra trạng thái hiển thị
     const [text, setText] = useState(initialText);
@@ -120,7 +124,7 @@ const InfoRoom = () => {
 
                     <Image source={mapImg} resizeMode="cover" style={styles.image2} ></Image>
 
-                    <Button style={styles.button} variant='primary'>Reserve Room</Button>
+                    <Button style={styles.button} onPress={handleBook} variant='primary'>Reserve Room</Button>
 
                 </View>
             </ScrollView>

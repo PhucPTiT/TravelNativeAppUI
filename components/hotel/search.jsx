@@ -1,26 +1,26 @@
-import React from 'react'
-import { Image, StyleSheet, Text, TextInput, View } from "react-native";
+import React from 'react';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { COLORS, FONT } from '../../constants/theme';
 import icons from '../../constants/icons';
 
-const SearchHotel = () => {
+const SearchHotel = ({ style, openFilter }) => {
     return (
-        <View style={styles.inputWrap} >
+        <View style={styles.inputWrap}>
             <View style={styles.searchContainer}>
-                <View style={styles.search} >
+                <View style={[styles.search, style]}>
                     <TextInput
                         style={styles.inputStyle}
                         textDecorationLine="none"
                         placeholderTextColor={'gray'}
-                        // onSubmitEditing={handleSearch}
                         placeholder="Luxury?"
                     />
-                    <Image style={styles.iconFilter} source={icons.filter} />
+                    <TouchableOpacity onPress={openFilter} style={styles.wrapFilter}>
+                        <Image style={styles.iconFilter} source={icons.filter} />
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.searchBt}>
+                <TouchableOpacity style={styles.searchBt}>
                     <Image style={styles.iconSearch} source={icons.search} />
-                </View>
-
+                </TouchableOpacity>
             </View>
             <View style={styles.textContainer}>
                 <View style={styles.textColumn}>
@@ -34,19 +34,19 @@ const SearchHotel = () => {
                 </View>
             </View>
         </View>
-    )
-}
+    );
+};
 
-export default SearchHotel
+export default SearchHotel;
 
 const styles = StyleSheet.create({
     inputWrap: {
         height: 150,
-        width: "100%",
+        width: '100%',
         marginBottom: 10,
         backgroundColor: COLORS.gray,
         position: 'absolute',
-        padding: 14
+        padding: 14,
     },
     inputStyle: {
         width: 290,
@@ -55,27 +55,27 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         backgroundColor: COLORS.white,
     },
-
     searchContainer: {
         flexDirection: 'row',
-        left: 30
+        alignItems: 'center',
+        position: 'relative',
+        left: 30,
     },
-
     search: {
+        position: 'relative',
+        flexDirection: 'row',
+        alignItems: 'center',
     },
-
     iconFilter: {
         width: 20,
         height: 20,
         position: 'absolute',
         right: 10,
-        top: 15
+        top: 15,
     },
-
     iconSearch: {
         width: 20,
         height: 20,
-        position: 'absolute',
     },
     searchBt: {
         width: 50,
@@ -84,9 +84,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary,
         justifyContent: 'center',
         alignItems: 'center',
-        left: 12,
+        marginLeft: 12,
     },
-
     textContainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -110,5 +109,12 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontFamily: FONT.bold,
     },
-
+    wrapFilter: {
+        position: 'absolute',
+        right: 0,
+        top: 0,
+        bottom: 0,
+        justifyContent: 'center',
+        paddingRight: 10, // Add padding to avoid overlap
+    },
 });
