@@ -1,9 +1,16 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
-import { FONT } from '../../constants/theme';
+import { COLORS, FONT } from '../../constants/theme';
 import icons from '../../constants/icons';
+import Button from '../ui/button';
+import { Stack, router } from "expo-router";
 
-const ListRoom = ({ item }) => {
+const Compare = ({ item }) => {
+
+    const handleClick = () => {
+        router.push("hotel/compare/comparePage")
+    }
+
     return (
         <View style={styles.listpage}>
             <View style={styles.imageContainer}>
@@ -20,15 +27,15 @@ const ListRoom = ({ item }) => {
                     <Image source={icons.star} style={{ width: 10, height: 10, top: 2, marginBottom: 5 }} />
                 </View>
                 <View style={styles.t2}>
-                    <Text style={[styles.text4, { textAlign: 'right' }]}>{item.text4}</Text>
-                    <Text style={[styles.text5, { textAlign: 'right' }]}>{item.text5}</Text>
+                    <Text style={[styles.text4, { textAlign: 'right', }]}>{item.text4}</Text>
+                    <Button style={styles.button} variant='primary' onPress={handleClick} >Compare</Button>
                 </View>
             </View>
         </View>
     )
 }
 
-export default ListRoom;
+export default Compare;
 
 const styles = StyleSheet.create({
     listpage: {
@@ -49,7 +56,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         maxWidth: 380,
-        maxHeight: 290
+        maxHeight: 390,
     },
     imageContainer: {
         width: 380, // Kích thước cố định của khung bao ngoài
@@ -75,7 +82,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         zIndex: 1,
         justifyContent: 'flex-end',
-        left: 240,
+        left: 250
     },
 
     text: {
@@ -106,5 +113,13 @@ const styles = StyleSheet.create({
     text5: {
         fontSize: 12,
         fontFamily: FONT.regular
-    }
+    },
+    button: {
+        width: 100,
+        height: 25,
+        borderRadius: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
 });

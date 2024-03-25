@@ -48,6 +48,9 @@ const RootLayout = () => {
             <Stack.Screen name="schedule/index" options={{ title: 'Schedule' }} />
             <Stack.Screen name="ai/index" options={{ title: 'Pershot' }} />
             <Stack.Screen name="share/index" options={{ title: 'Share' }} />
+            <Stack.Screen name="hotel/infoRoom/index" options={{ title: '' }} />
+            <Stack.Screen name="hotel/compare/index" options={{ title: '' }} />
+            <Stack.Screen name="hotel/compare/comparePage/index" options={{ title: 'COMPARE' }} />
         </Stack>
     );
 }

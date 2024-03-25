@@ -24,6 +24,7 @@ import setting from "../assets/icons/setting.png";
 import chevronRight from "../assets/icons/chevron-right.png";
 import camera from "../assets/icons/camera.png";
 import plane from "../assets/icons/plane.png";
+<<<<<<< HEAD
 import bellNotifi from "../assets/icons/bellNotifi.png";
 import filter from "../assets/icons/filter.png"
 import sort from "../assets/icons/sort.png";
@@ -33,6 +34,11 @@ import plane2 from "../assets/icons/plane2.png";
 import upload from "../assets/icons/upload.png";
 import bin from "../assets/icons/bin.png";
 import share from "../assets/icons/share.png"
+=======
+import filter from "../assets/icons/filter.png";
+import sort from "../assets/icons/sort.png";
+import compare from "../assets/icons/compare.png";
+>>>>>>> dev-Heatse
 
 export default {
     building,
@@ -61,6 +67,7 @@ export default {
     chevronRight,
     camera,
     plane,
+<<<<<<< HEAD
     bellNotifi,
     filter,
     sort,
@@ -70,4 +77,9 @@ export default {
     upload,
     bin,
     share
+=======
+    filter,
+    sort,
+    compare
+>>>>>>> dev-Heatse
 }

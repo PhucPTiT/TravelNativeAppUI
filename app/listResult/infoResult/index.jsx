@@ -6,11 +6,16 @@ import { COLORS, FONT } from '../../../constants/theme';
 import icons from '../../../constants/icons';
 import Button from '../../../components/ui/button';
 import Intro4 from '../../../components/home/intro4';
+import { router } from "expo-router";
 
 const { width, height } = Dimensions.get('screen');
 
 const InfoResult = () => {
     const [activeIndex, setActiveIndex] = useState(1);
+
+    const handleClick = () => {
+        router.push("/hotel/infoRoom")
+    }
 
     const handleScroll = (event) => {
         let contentOffset = event.nativeEvent.contentOffset.x;
@@ -58,7 +63,7 @@ const InfoResult = () => {
                                 </View>
                                 <View style={styles.bt}>
                                     <Button style={styles.button} variant='secondary'>Schedule</Button>
-                                    <Button style={styles.button} variant='primary'>Book Rooms</Button>
+                                    <Button style={styles.button} variant='primary' onPress={handleClick}>Book Rooms</Button>
                                     <Button style={styles.button} variant='outline'>Book Vehicle</Button>
                                 </View>
 
