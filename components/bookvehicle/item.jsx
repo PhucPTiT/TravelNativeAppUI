@@ -1,10 +1,11 @@
 import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import icons from "../../constants/icons";
 import { COLORS, FONT } from "../../constants/theme";
+import { router } from "expo-router";
 
 const Item = ({item, style}) => {
     return ( 
-        <TouchableOpacity style = {[styles.item, style]}>
+        <TouchableOpacity onPress = {() => router.push('bookvehicle/select')} style = {[styles.item, style]}>
             <ImageBackground resizeMode="cover" imageStyle = {styles.image} source = {item.image}>
                 <View style = {styles.header}>
                     <Text style = {{fontSize: 14, fontFamily: FONT.bold}}>{item.brand}</Text>

@@ -6,7 +6,7 @@ import { COLORS, FONT } from '../../../constants/theme';
 import icons from '../../../constants/icons';
 import Button from '../../../components/ui/button';
 import Intro4 from '../../../components/home/intro4';
-import { router } from "expo-router";
+import { Stack, router } from "expo-router";
 
 const { width, height } = Dimensions.get('screen');
 
@@ -28,7 +28,6 @@ const InfoResult = () => {
 
     return (
         <View style={styles.page}>
-
             <FlatList
                 data={[{ key: 'main', component: 'main' }, ...image, ...slides4]}
                 renderItem={({ item }) => {
@@ -138,7 +137,6 @@ const slides4 = [
 const styles = StyleSheet.create({
     page: {
         flex: 1,
-
     },
 
     text: {

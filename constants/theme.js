@@ -2,6 +2,7 @@ const COLORS = {
     primary: "#00CEC9",
     secondary: "#FFF",
     black: "#000",
+    black2: 'rgba(0,0,0,0.8)',
     gray: '#DFE6E9',
     white: "#fff",
     error: '#EA4335',

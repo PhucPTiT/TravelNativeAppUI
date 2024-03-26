@@ -21,7 +21,7 @@ const InfoRoom = () => {
     }
 
     const handleBook = () => {
-        router.push("user/roomHistory")
+        router.push("hotel/select")
     }
 
     const initialText = "This luxury and well-known hotel overlooking the Chao Phraya river is a 3-minute walk from the nearest ferry stop.";
