@@ -35,6 +35,7 @@ import bin from "../assets/icons/bin.png";
 import share from "../assets/icons/share.png";
 import compare from "../assets/icons/compare.png";
 import search2 from "../assets/icons/search2.png";
+import star2 from "../assets/icons/star2.png";
 
 export default {
     building,
@@ -73,6 +74,6 @@ export default {
     bin,
     share,
     compare,
-    search2
-    
+    search2,
+    star2,
 }

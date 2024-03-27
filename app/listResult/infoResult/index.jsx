@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dimensions, FlatList, Image, StyleSheet, Text, TextInput, View } from "react-native";
+import { Dimensions, FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Info from '../../../components/listResult/info';
 import Pagination from '../../../components/pagination';
 import { COLORS, FONT } from '../../../constants/theme';
@@ -12,10 +12,15 @@ const { width, height } = Dimensions.get('screen');
 
 const InfoResult = () => {
     const [activeIndex, setActiveIndex] = useState(1);
+    const [showFullText, setShowFullText] = useState(3);
 
     const handleClick = () => {
         router.push("/hotel/infoRoom")
     }
+
+    const handleReadMore = () => {
+        setShowFullText(100);
+    };
 
     const handleScroll = (event) => {
         let contentOffset = event.nativeEvent.contentOffset.x;
@@ -55,10 +60,22 @@ const InfoResult = () => {
                                 </View>
                                 <View style={styles.text}>
                                     <Text style={styles.text1}>Văn Miếu - QuốcTử Giám</Text>
-                                    <Image source={icons.star} style={{ left: 9 }} />
-                                    <Text style={styles.text2}>Ha Noi, Viet Nam</Text>
-                                    <Text style={styles.text3}>Văn Miếu – Quốc Tử Giám là quần thể di tích đa dạng, phong phú hàng đầu của thành phố Hà Nội, nằm ở phía Nam kinh thành Thăng Long. Quần thể kiến trúc Văn Miếu – Quốc Tử Giám bao gồm: hồ Văn, khu Văn Miếu – Quốc Tử Giám và vườn Giám, mà kiến trúc chủ thể là Văn miếu (chữ Hán: 文廟) - nơi thờ Khổng Tử, và Quốc tử giám (chữ Hán: 國子監) - trường đại học đầu tiên của Việt Nam. Khu Văn Miếu – Quốc Tử Giám có tường gạch vồ bao quanh, phía trong chia thành 5 lớp không gian với các kiến trúc khác nhau</Text>
-
+                                    <View style = {styles.row}>
+                                        <Image source={icons.star2}/>
+                                        <TouchableOpacity><Text>1345 đánh giá</Text></TouchableOpacity>
+                                    </View>
+                                    <View style = {styles.row}>
+                                        <Text style={styles.text2}>📍Ha Noi, Viet Nam</Text>
+                                        <Text>☁️ 14 °C </Text>
+                                    </View>
+                                    <Text numberOfLines={showFullText} style={styles.text3}>Văn Miếu – Quốc Tử Giám là quần thể di tích đa dạng, phong phú hàng đầu của thành phố Hà Nội, nằm ở phía Nam kinh thành Thăng Long. Quần thể kiến trúc Văn Miếu – Quốc Tử Giám bao gồm: hồ Văn, khu Văn Miếu – Quốc Tử Giám và vườn Giám, mà kiến trúc chủ thể là Văn miếu (chữ Hán: 文廟) - nơi thờ Khổng Tử, và Quốc tử giám (chữ Hán: 國子監) - trường đại học đầu tiên của Việt Nam. Khu Văn Miếu – Quốc Tử Giám có tường gạch vồ bao quanh, phía trong chia thành 5 lớp không gian với các kiến trúc khác nhau</Text>
+                                    <View>
+                                        {showFullText < 4 && (
+                                            <TouchableOpacity onPress={handleReadMore}>
+                                                <Text style={styles.readMore}>Read more</Text>
+                                            </TouchableOpacity>
+                                        )}
+                                    </View>
                                 </View>
                                 <View style={styles.bt}>
                                     <Button style={styles.button} variant='secondary'>Schedule</Button>
@@ -142,22 +159,20 @@ const styles = StyleSheet.create({
 
     text: {
         marginHorizontal: 20,
+        gap: 8,
     },
     text1: {
         fontSize: 22,
         color: COLORS.black,
         fontFamily: FONT.bold,
-        margin: 9,
     },
     text2: {
         fontSize: 16,
         fontFamily: FONT.regular,
-        margin: 9,
     },
     text3: {
         fontSize: 14,
         fontFamily: FONT.regular,
-        margin: 9,
         textAlign: 'justify',
     },
 
@@ -186,6 +201,11 @@ const styles = StyleSheet.create({
     container: {
         marginHorizontal: 20,
         marginBottom: 20,
+    },
+    row: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     }
 })
 
