@@ -11,28 +11,29 @@ const ListRoom = ({ item }) => {
     }
 
     return (
-        <View style={styles.listpage}>
-            <TouchableOpacity onPress={handleClick}>
-                <View style={styles.imageContainer}>
-                    <Image style={styles.image} source={item.url} resizeMode="cover" />
-                </View>
-            </TouchableOpacity>
-            <View style={styles.text}>
-                <View style={styles.t1}>
-                    <Text style={styles.text1}>{item.text1}</Text>
-                    <View style={styles.loca}>
-                        <Text style={styles.text2}>{item.text2}</Text>
-                        <Image source={icons.location} style={{ width: 10, height: 10 }} />
-                        <Text style={styles.text3}>{item.text3}</Text>
+        <TouchableOpacity onPress={handleClick}>    
+            <View style={styles.listpage}>
+                    <View style={styles.imageContainer}>
+                        <Image style={styles.image} source={item.url} resizeMode="cover"/>
                     </View>
-                    <Image source={icons.star} style={{ width: 10, height: 10, top: 2, marginBottom: 5 }} />
-                </View>
-                <View style={styles.t2}>
-                    <Text style={[styles.text4, { textAlign: 'right' }]}>{item.text4}</Text>
-                    <Text style={[styles.text5, { textAlign: 'right' }]}>{item.text5}</Text>
+
+                <View style={styles.text}>
+                    <View style={styles.t1}>
+                        <Text style={styles.text1}>{item.text1}</Text>
+                        <View style={styles.loca}>
+                            <Text style={styles.text2}>{item.text2}</Text>
+                            <Image source={icons.location} style={{ width: 10, height: 10 }} />
+                            <Text style={styles.text3}>{item.text3}</Text>
+                        </View>
+                        <Image source={icons.star} style={{ width: 10, height: 10, top: 2, marginBottom: 5 }} />
+                    </View>
+                    <View style={styles.t2}>
+                        <Text style={[styles.text4, { textAlign: 'right' }]}>{item.text4}</Text>
+                        <Text style={[styles.text5, { textAlign: 'right' }]}>{item.text5}</Text>
+                    </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -43,8 +44,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         alignItems: 'flex-start',
-        left: 28,
-        right: 40,
         borderRadius: 20,
         marginBottom: 21,
         backgroundColor: '#fff',
@@ -56,18 +55,16 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        maxWidth: 380,
-        maxHeight: 290
     },
     imageContainer: {
-        width: 380, // Kích thước cố định của khung bao ngoài
-        height: 210, // Kích thước cố định của khung bao ngoài
-        borderRadius: 20,
-        overflow: 'hidden', // Đảm bảo hình ảnh không vượt ra khỏi khung
+        width: '100%',
+        height: 230,
+        borderTopStartRadius: 20,
+        borderTopEndRadius: 20,
+        overflow: 'hidden', 
+        backgroundColor: 'aqua',
     },
     image: {
-        height: "100%",
-        width: "100%",
     },
     loca: {
         flexDirection: 'row',

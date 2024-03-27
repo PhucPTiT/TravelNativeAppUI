@@ -66,7 +66,7 @@ const InfoResult = () => {
                                     <Button style={styles.button} variant='outline'>Book Vehicle</Button>
                                 </View>
 
-                                <View>
+                                <View style= {styles.container}>
                                     <Text style={styles.text4}>Best Deals</Text>
 
                                     <FlatList
@@ -137,11 +137,11 @@ const slides4 = [
 const styles = StyleSheet.create({
     page: {
         flex: 1,
+        backgroundColor: COLORS.white,
     },
 
     text: {
-        left: 10,
-        right: 20,
+        marginHorizontal: 20,
     },
     text1: {
         fontSize: 22,
@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: FONT.regular,
         margin: 9,
+        textAlign: 'justify',
     },
 
     text4: {
@@ -169,18 +170,22 @@ const styles = StyleSheet.create({
 
     bt: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        important: true,
-        margin: 9,
-        important: true
+        gap: 12,
+        marginHorizontal: 20,
     },
 
     button: {
-        borderRadius: 20
+        borderRadius: 20,
+        flex: 1,
     },
 
     pagination: {
         top: 0
+    },
+
+    container: {
+        marginHorizontal: 20,
+        marginBottom: 20,
     }
 })
 

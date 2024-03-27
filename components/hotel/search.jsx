@@ -45,26 +45,22 @@ const styles = StyleSheet.create({
         width: '100%',
         marginBottom: 10,
         backgroundColor: COLORS.gray,
-        position: 'absolute',
         padding: 14,
     },
     inputStyle: {
-        width: 290,
         height: 50,
         borderRadius: 30,
         textAlign: 'center',
         backgroundColor: COLORS.white,
+        flex: 1,
     },
     searchContainer: {
         flexDirection: 'row',
-        alignItems: 'center',
-        position: 'relative',
-        left: 30,
+        justifyContent: 'space-around'
     },
     search: {
-        position: 'relative',
         flexDirection: 'row',
-        alignItems: 'center',
+        flex: 1,
     },
     iconFilter: {
         width: 20,
@@ -94,7 +90,8 @@ const styles = StyleSheet.create({
     },
     textColumn: {
         flex: 1,
-        alignItems: 'center',
+        alignItems: 'flex-start',
+        paddingLeft: 10,
     },
     divider: {
         borderRightWidth: 1,
@@ -108,13 +105,5 @@ const styles = StyleSheet.create({
     text2: {
         fontSize: 16,
         fontFamily: FONT.bold,
-    },
-    wrapFilter: {
-        position: 'absolute',
-        right: 0,
-        top: 0,
-        bottom: 0,
-        justifyContent: 'center',
-        paddingRight: 10, // Add padding to avoid overlap
     },
 });

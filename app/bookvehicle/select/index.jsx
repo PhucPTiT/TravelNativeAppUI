@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, FlatList, ImageBackground, StyleSheet, Dimensions, TouchableOpacity, Alert } from "react-native";
 import { COLORS, FONT } from "../../../constants/theme";
 import Button from "../../../components/ui/button";
-import { Stack } from "expo-router";
+import { Stack, router } from "expo-router";
 
 const image = require('../../../assets/images/order.png');
 
@@ -32,6 +32,10 @@ const Select = () => {
     const calculatePrice = () => {
         return countSelectedSeats() * 99;
     };
+
+    const onBooking = () => {
+        router.push("/bookvehicle/success");
+    }
 
     const renderSeat = ({ item }) => (
         <TouchableOpacity
@@ -100,7 +104,7 @@ const Select = () => {
                         <View>
                             <Text style={{ fontSize: 12, fontFamily: FONT.medium, color: COLORS.white, marginBottom: -16 }}>Quantity: {countSelectedSeats()}</Text>
                         </View>
-                        <Button disabled={1 > countSelectedSeats()} onPress={() => {}} style={styles.button}>Bookings</Button>
+                        <Button disabled={1 > countSelectedSeats()} onPress={onBooking} style={styles.button}>Bookings</Button>
                     </View>
                 </View>
             </ImageBackground>

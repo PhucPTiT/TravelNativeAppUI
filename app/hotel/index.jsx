@@ -3,7 +3,7 @@ import { FlatList, Image, StyleSheet, Text, View } from 'react-native'
 import { Stack, router } from "expo-router";
 import ListRoom from '../../components/hotel/listRoom';
 import SearchHotel from '../../components/hotel/search';
-import { FONT } from '../../constants/theme';
+import { COLORS, FONT } from '../../constants/theme';
 import icons from '../../constants/icons';
 import FilterModal from '../../components/bookvehicle/filter';
 
@@ -20,7 +20,8 @@ const Hotel = () => {
                     headerTintColor: '#000',
                     headerShadowVisible: false,
                     headerTitleStyle: {
-
+                        fontFamily: FONT.bold,
+                        fontSize: 22,
                     },
                     headerTitleAlign: 'center',
 
@@ -46,7 +47,7 @@ const Hotel = () => {
                     horizontal={false}
                     pagingEnabled
                     snapToAlignment="center"
-                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
                 />
             </View>
             <FilterModal
@@ -69,7 +70,7 @@ const listRoom = [
         text5: 'Per Night',
     },
     {
-        url: require('../../assets/images/home_3.png'),
+        url: require('../../assets/images/list_1.png'),
         text1: 'Hotel Burj Al Arab',
         text2: 'Dubai - Uni Emirat Arab',
         text3: '(999mm) Umm Suqeim 3',
@@ -83,39 +84,36 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        marginBottom: 22,
+        backgroundColor: COLORS.white,
+        paddingBottom: 22,
     },
 
-    searchContainer: {
-        marginBottom: 10,
-    },
 
     textContainer: {
         flexDirection: 'row',
-        alignItems: 'center', // Đảm bảo các phần tử con được căn giữa theo trục dọc
-        marginBottom: 18
+        alignItems: 'center',
+        marginBottom: 18,
+        justifyContent: 'space-between',
     },
 
     text1: {
         fontSize: 16,
         fontFamily: FONT.bold,
-        marginLeft: 18,
     },
 
     filterIconContainer: {
-        flexDirection: 'row', // Hiển thị văn bản và biểu tượng cùng một hàng
-        alignItems: 'center', // Căn giữa các phần tử trong container
-        marginLeft: 200, //
+        flexDirection: 'row', 
+        alignItems: 'center', 
     },
 
     sortIcon: {
         width: 25,
         height: 25,
-        marginLeft: 0, // Khoảng cách giữa văn bản "Filter" và biểu tượng
+        marginLeft: 0, 
     },
 
     roomContainer: {
         flex: 1,
-        marginTop: 150,
+        paddingHorizontal: 20,
     }
 })
